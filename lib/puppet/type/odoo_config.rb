@@ -9,7 +9,16 @@ Puppet::Type.newtype(:odoo_config) do
   newproperty(:value) do
     desc 'The value of the setting to define'
     munge do |v|
-      v.to_s.strip
+      case v
+      when true
+        'True'
+      when false
+        'False'
+      when String
+        v.strip
+      else
+        v
+      end
     end
 
     def should_to_s(newvalue)
