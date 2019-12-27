@@ -1,4 +1,6 @@
 class odoo::repo {
+  assert_private()
+
   if $odoo::manage_repo {
     case $facts.get('os.family') {
       'debian': {

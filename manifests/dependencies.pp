@@ -1,4 +1,6 @@
 class odoo::dependencies {
+  assert_private()
+
   package { 'num2words':
     ensure   => '0.5.10',
     provider => $odoo::pip_provider,

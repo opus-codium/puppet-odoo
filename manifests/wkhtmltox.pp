@@ -1,4 +1,6 @@
 class odoo::wkhtmltox {
+  assert_private()
+
   $wkhtmltox_version = '0.12.1.4'
   $wkhtmltox_dependencies = [
     'xfonts-75dpi',

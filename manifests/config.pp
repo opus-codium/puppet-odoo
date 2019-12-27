@@ -1,4 +1,6 @@
 class odoo::config {
+  assert_private()
+
   odoo_config { 'addons_path':
     ensure => bool2str($odoo::addons_path != undef, 'present', 'absent'),
     value  => $odoo::addons_path,
