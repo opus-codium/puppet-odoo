@@ -5,7 +5,7 @@ class odoo::wkhtmltox {
     'xfonts-base',
   ]
 
-  archive { "/tmp/wkhtmltox_${wkhtmltox_version}.deb":
+  archive { "/var/cache/wkhtmltox_${wkhtmltox_version}.deb":
     ensure => present,
     user   => 'root',
     group  => 'root',
@@ -19,9 +19,9 @@ class odoo::wkhtmltox {
   package { 'wkhtmltox':
     ensure   => installed,
     provider => 'dpkg',
-    source   => "/tmp/wkhtmltox_${wkhtmltox_version}.deb",
+    source   => "/var/cache/wkhtmltox_${wkhtmltox_version}.deb",
     require  => [
-      Archive["/tmp/wkhtmltox_${wkhtmltox_version}.deb"],
+      Archive["/var/cache/wkhtmltox_${wkhtmltox_version}.deb"],
       Package[$wkhtmltox_dependencies],
     ],
   }
