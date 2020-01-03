@@ -1,3 +1,6 @@
+# @summary Manage odoo package
+#
+# @api private
 class odoo::package {
   assert_private()
 

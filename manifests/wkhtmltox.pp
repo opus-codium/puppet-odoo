@@ -1,3 +1,6 @@
+# @summary Manage wkhtmltox
+#
+# @api private
 class odoo::wkhtmltox {
   assert_private()
 

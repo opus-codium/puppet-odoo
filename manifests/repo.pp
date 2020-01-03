@@ -1,3 +1,6 @@
+# @summary Manage odoo repository
+#
+# @api private
 class odoo::repo {
   assert_private()
 

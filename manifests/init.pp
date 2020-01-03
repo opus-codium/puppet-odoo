@@ -1,3 +1,18 @@
+# @summary Configure Odoo
+#
+# @param version The version of odoo to install
+# @param manage_repo Manage the odoo reposiroty
+# @param manage_package Manage the odoo package
+# @param package_ensure
+# @param listen_address Address on which the HTTP server listens
+# @param listen_port Port on which the HTTP server listens
+# @param addons_path
+# @param admin_passwd
+# @param dbfilter Hides databases that do not match the filter
+# @param db_maxconn Maximum number of physical connections to PosgreSQL per odoo process
+# @param list_db
+# @param proxy_mode
+# @param pg_path
 class odoo (
   Enum['10.0', '11.0', '12.0', '13.0'] $version,
 

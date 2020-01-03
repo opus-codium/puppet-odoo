@@ -1,3 +1,6 @@
+# @summary Manage odoo service
+#
+# @api private
 class odoo::service {
   assert_private()
 

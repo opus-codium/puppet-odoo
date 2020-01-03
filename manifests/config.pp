@@ -1,3 +1,6 @@
+# @summary Manage odoo configuration
+#
+# @api private
 class odoo::config {
   assert_private()
 

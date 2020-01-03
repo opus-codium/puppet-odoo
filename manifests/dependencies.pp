@@ -1,3 +1,6 @@
+# @summary Manage odoo dependencies
+#
+# @api private
 class odoo::dependencies {
   assert_private()
 
