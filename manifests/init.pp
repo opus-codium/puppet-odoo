@@ -31,6 +31,7 @@ class odoo (
   Optional[Boolean]   $list_db        = undef,
   Optional[Boolean]   $proxy_mode     = undef,
   Optional[String]    $pg_path        = undef,
+  Optional[Integer]   $workers        = undef,
 ) {
   contain odoo::wkhtmltox
 

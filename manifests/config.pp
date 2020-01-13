@@ -50,4 +50,9 @@ class odoo::config {
     ensure => bool2str($odoo::pg_path != undef, 'present', 'absent'),
     value  => $odoo::pg_path,
   }
+
+  odoo_config { 'workers':
+    ensure => bool2str($odoo::workers != undef, 'present', 'absent'),
+    value  => $odoo::workers,
+  }
 }
