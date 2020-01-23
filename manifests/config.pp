@@ -4,55 +4,95 @@
 class odoo::config {
   assert_private()
 
-  odoo_config { 'addons_path':
-    ensure => bool2str($odoo::addons_path != undef, 'present', 'absent'),
-    value  => $odoo::addons_path,
-  }
+  [
+    'admin_passwd',
+    'csv_internal_sep',
+    'reportgz',
+    'without_demo',
+    'import_partial',
+    'pidfile',
+    'addons_path',
+    'upgrades_paths',
+    'server_wide_modules',
+    'data_dir',
+    'http_interface',
+    'http_port',
+    'longpolling_port',
+    'http_enable',
+    'proxy_mode',
+    'dbfilter',
+    'test_enable',
+    'test_file',
+    'test_tags',
+    'screencasts',
+    'screenshots',
+    'logfile',
+    'syslog',
+    'log_handler',
+    'log_db',
+    'log_db_level',
+    'log_level',
+    'email_from',
+    'smtp_server',
+    'smtp_port',
+    'smtp_ssl',
+    'smtp_user',
+    'smtp_password',
+    'db_name',
+    'db_user',
+    'db_password',
+    'pg_path',
+    'db_host',
+    'db_port',
+    'db_sslmode',
+    'db_maxconn',
+    'db_template',
+    'language',
+    'translate_out',
+    'translate_in',
+    'overwrite_existing_translations',
+    'translate_modules',
+    'list_db',
+    'osv_memory_count_limit',
+    'osv_memory_age_limit',
+    'max_cron_threads',
+    'unaccent',
+    'geoip_database',
+    'workers',
+    'limit_memory_soft',
+    'limit_memory_hard',
+    'limit_time_cpu',
+    'limit_time_real',
+    'limit_time_real_cron',
+    'limit_request',
+  ].each |$raw_param| {
+    $raw_value = getvar("odoo::${raw_param}")
 
-  odoo_config { 'admin_passwd':
-    ensure    => bool2str($odoo::admin_passwd != undef, 'present', 'absent'),
-    value     => $odoo::admin_passwd.unwrap,
-    show_diff => false,
-  }
+    if $raw_value != undef {
+      $param = $raw_param ? {
+        'http_enable'    => $odoo::http_enable_setting,
+        'http_interface' => $odoo::http_interface_setting,
+        'http_port'      => $odoo::http_port_setting,
+        default          => $raw_param,
+      }
 
-  odoo_config { 'dbfilter':
-    ensure => bool2str($odoo::dbfilter != undef, 'present', 'absent'),
-    value  => $odoo::dbfilter,
-  }
+      $value = $raw_value ? {
+        Array[String] => $raw_value.join(','),
+        Boolean       => String($raw_value, '%T'),
+        Sensitive     => $raw_value.unwrap(),
+        default       => $raw_value,
+      }
 
-  odoo_config { 'db_maxconn':
-    ensure => bool2str($odoo::db_maxconn != undef, 'present', 'absent'),
-    value  => $odoo::db_maxconn,
-  }
+      $show_diff = $raw_value ? {
+        Sensitive => true,
+        default   => false,
+      }
 
-  odoo_config { 'list_db':
-    ensure => bool2str($odoo::list_db != undef, 'present', 'absent'),
-    value  => $odoo::list_db,
-  }
-
-  odoo_config { 'listen_address':
-    ensure => bool2str($odoo::listen_address != undef, 'present', 'absent'),
-    name   => $odoo::listen_address_setting,
-    value  => $odoo::listen_address,
-  }
-
-  odoo_config { 'listen_port':
-    ensure => bool2str($odoo::listen_port != undef, 'present', 'absent'),
-    value  => $odoo::listen_port,
-  }
-
-  odoo_config { 'proxy_mode':
-    ensure => bool2str($odoo::proxy_mode != undef, 'present', 'absent'),
-    value  => $odoo::proxy_mode,
-  }
-
-  odoo_config { 'pg_path':
-    ensure => bool2str($odoo::pg_path != undef, 'present', 'absent'),
-    value  => $odoo::pg_path,
-  }
-
-  odoo_config { 'workers':
-    ensure => bool2str($odoo::workers != undef, 'present', 'absent'),
-    value  => $odoo::workers,
+      odoo_config { $param:
+        ensure    => present,
+        value     => $value,
+        show_diff => $show_diff,
+      }
+    }
   }
 }

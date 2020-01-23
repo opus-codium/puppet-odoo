@@ -16,6 +16,8 @@ group :test do
   gem 'puppet-lint-version_comparison-check',                      require: false
   gem 'puppet-strings',                                            require: false
   gem 'puppetlabs_spec_helper',                                    require: false
+  # We need to add rspec-puppet ~> 2.8 in ModuleSync when it ships.
+  gem 'rspec-puppet',                                              require: false, ref: 'ffa754a058f603f85a38d78d89b27f33b81e893c', git: 'https://github.com/rodjek/rspec-puppet.git'
   gem 'rspec-puppet-facts',                                        require: false
   gem 'rubocop',                                                   require: false
 end
