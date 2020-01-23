@@ -24,6 +24,7 @@ class odoo::dependencies {
             ]
 
             $odoo_pip_packages = [
+              'phonenumbers',
               'pyldap',
               'qrcode',
               'vobject',
@@ -32,6 +33,7 @@ class odoo::dependencies {
           '18.04': {
             $odoo_dependencies = [
               'python3-qrcode',
+              'python3-phonenumbers',
               'python3-pyldap',
               'python3-vobject',
             ]
