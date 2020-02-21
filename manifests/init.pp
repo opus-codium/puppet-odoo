@@ -4,6 +4,7 @@
 # @param manage_repo Manage the odoo reposiroty
 # @param manage_package Manage the odoo package
 # @param package_ensure Ensure value for the odoo package
+# @param package_mark Mark value for the odoo package
 #
 # @param admin_passwd Password that allows database operations
 # @param csv_internal_sep Legacy (now unused)
@@ -82,7 +83,8 @@ class odoo (
   Boolean $manage_repo    = true,
   Boolean $manage_package = true,
 
-  String  $package_ensure = 'present',
+  String                         $package_ensure = 'present',
+  Optional[Enum['hold', 'none']] $package_mark   = undef,
 
   Optional[Sensitive]                      $admin_passwd           = undef,
   Optional[String]                         $csv_internal_sep       = undef,
