@@ -7,6 +7,7 @@ class odoo::package {
   if $odoo::manage_package {
     package { 'odoo':
       ensure => $odoo::package_ensure,
+      mark   => $odoo::package_mark,
     }
   }
 }
