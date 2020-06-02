@@ -84,8 +84,8 @@ class odoo::config {
       }
 
       $show_diff = $raw_value ? {
-        Sensitive => true,
-        default   => false,
+        Sensitive => false,
+        default   => true,
       }
 
       odoo_config { $param:
