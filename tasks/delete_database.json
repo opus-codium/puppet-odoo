@@ -1,0 +1,10 @@
+{
+  "description": "Delete an odoo database",
+  "input_method": "environment",
+  "parameters": {
+    "name": {
+      "description": "Odoo database name",
+      "type": "String"
+    }
+  }
+}

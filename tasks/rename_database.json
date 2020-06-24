@@ -1,0 +1,14 @@
+{
+  "description": "Rename an odoo database",
+  "input_method": "environment",
+  "parameters": {
+    "oldname": {
+      "description": "Old database name (must exist)",
+      "type": "String"
+    },
+    "newname": {
+      "description": "New database name (must not exist)",
+      "type": "String"
+    }
+  }
+}
