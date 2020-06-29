@@ -1,0 +1,11 @@
+{
+  "description": "List installed addons",
+  "input_method": "stdin",
+  "parameters": {
+    "keys": {
+      "description": "Comma separated list of manifest keys to display. Use 'all' for all.",
+      "type": "String[1]",
+      "default": "version"
+    }
+  }
+}
