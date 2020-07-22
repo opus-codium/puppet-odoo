@@ -1,0 +1,14 @@
+{
+  "description": "Restore an odoo database",
+  "input_method": "environment",
+  "parameters": {
+    "name": {
+      "description": "Odoo database name",
+      "type": "String"
+    },
+    "filename": {
+      "description": "Remote filename for the backup",
+      "type": "String"
+    }
+  }
+}
