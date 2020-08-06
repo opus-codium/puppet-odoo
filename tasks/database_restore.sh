@@ -20,7 +20,7 @@ TMPDIR=`mktemp -d`
 )
 chown -R odoo:odoo "${TMPDIR}/filestore"
 mv "${TMPDIR}/filestore" ~odoo/.local/share/Odoo/filestore/"${PT_name}"
-createdb -Oodoo -Eunicode "${PT_name}"
+sudo -u postgres createdb -Oodoo -Eunicode "${PT_name}"
 sudo -u postgres psql "${PT_name}" < "${TMPDIR}/dump.sql"
 
 rm -r "${TMPDIR}"
