@@ -1,0 +1,13 @@
+import json
+
+res = {}
+
+for dbname in odoo.service.db.list_dbs(True):
+    res[dbname] = {}
+    registry = odoo.registry(dbname)
+    with registry.cursor() as cr:
+        cr.execute("SELECT key, value FROM ir_config_parameter WHERE key IN ('database.create_date', 'database.enterprise_code', 'database.expiration_date', 'database.expiration_reason', 'web.base.url')")
+        for line in cr.fetchall():
+            res[dbname][line[0]] = line[1]
+
+print(json.dumps(res))

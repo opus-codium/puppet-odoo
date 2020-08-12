@@ -1,3 +1,4 @@
 {
-  "description": "List odoo databases"
+  "description": "List odoo databases",
+  "files": ["odoo/files/databases-list.py"]
 }
