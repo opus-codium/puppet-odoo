@@ -2,4 +2,4 @@
 
 set -e
 
-ls ~odoo/.local/share/Odoo/filestore
+/usr/bin/odoo shell --config=/etc/odoo/odoo.conf --no-http --workers=0 < ${PT__installdir}/odoo/files/databases-list.py
