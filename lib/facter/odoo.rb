@@ -7,7 +7,7 @@ Facter.add(:odoo) do
 
       begin
         output = Facter::Core::Execution.execute('dpkg-query -W -f=\'${Version}\n\' odoo')
-        /^(?<major>\d+)\.(?<minor>\d+)(\+e)?\.(?<date>\d+)$/ =~ output
+        /^(?<major>\d+)\.(?<minor>\d+)(?:\+e)?\.(?<date>\d+)$/ =~ output
       rescue Facter::Core::Execution::ExecutionFailure
         output = nil
         begin
