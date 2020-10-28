@@ -1,0 +1,15 @@
+{
+  "description": "Duplicate an odoo database",
+  "input_method": "environment",
+  "parameters": {
+    "oldname": {
+      "description": "Name of the existing Odoo database",
+      "type": "String"
+    },
+    "newname": {
+      "description": "Name of the new Odoo database",
+      "type": "String"
+    }
+  },
+  "files": ["odoo/files/database-duplicate.py"]
+}

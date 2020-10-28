@@ -10,5 +10,6 @@
       "description": "New database name (must not exist)",
       "type": "String"
     }
-  }
+  },
+  "files": ["odoo/files/database-rename.py"]
 }

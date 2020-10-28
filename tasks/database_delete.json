@@ -6,5 +6,6 @@
       "description": "Odoo database name",
       "type": "String"
     }
-  }
+  },
+  "files": ["odoo/files/database-delete.py"]
 }

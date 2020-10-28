@@ -2,7 +2,4 @@
 
 set -e
 
-systemctl stop odoo
-sudo -u postgres dropdb "$PT_name"
-rm -r ~odoo/.local/share/Odoo/filestore/"$PT_name"
-systemctl start odoo
+/usr/bin/odoo shell --config=/etc/odoo/odoo.conf --no-http --workers=0 < ${PT__installdir}/odoo/files/database-delete.py
