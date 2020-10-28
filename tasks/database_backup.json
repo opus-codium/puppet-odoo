@@ -9,6 +9,12 @@
     "filename": {
       "description": "Remote filename for the backup",
       "type": "String"
+    },
+    "format": {
+      "description": "Backup format",
+      "type": "Enum['zip']",
+      "default": "zip"
     }
-  }
+  },
+  "files": ["odoo/files/database-backup.py"]
 }

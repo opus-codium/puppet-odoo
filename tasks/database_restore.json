@@ -9,6 +9,12 @@
     "filename": {
       "description": "Remote filename for the backup",
       "type": "String"
+    },
+    "copy": {
+      "description": "",
+      "type": "Boolean",
+      "default": true
     }
-  }
+  },
+  "files": ["odoo/files/database-restore.py"]
 }
