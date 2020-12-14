@@ -90,7 +90,6 @@ class odoo (
   Optional[String]                         $csv_internal_sep       = undef,
   Optional[String]                         $reportgz               = undef,
 
-
   # Common options
   Optional[Variant[Array[String],Boolean]] $without_demo           = undef,
   Optional[String]                         $import_partial         = undef,
@@ -124,16 +123,16 @@ class odoo (
   Optional[String]                         $log_db       = undef,
   Optional[String]                         $log_db_level = undef,
   Optional[Enum[
-    'info',
-    'debug_rpc',
-    'warn',
-    'test',
-    'critical',
-    'debug_sql',
-    'error',
-    'debug',
-    'debug_rpc_answer',
-    'notset',
+      'info',
+      'debug_rpc',
+      'warn',
+      'test',
+      'critical',
+      'debug_sql',
+      'error',
+      'debug',
+      'debug_rpc_answer',
+      'notset',
   ]]                                       $log_level    = undef,
 
   # SMTP Configuration
@@ -152,12 +151,12 @@ class odoo (
   Optional[Variant[Boolean,String]]        $db_host     = false,
   Optional[Variant[Boolean,Integer]]       $db_port     = false,
   Optional[Enum[
-    'disable',
-    'allow',
-    'prefer',
-    'require',
-    'verify-ca',
-    'verify-full',
+      'disable',
+      'allow',
+      'prefer',
+      'require',
+      'verify-ca',
+      'verify-full',
   ]]                                       $db_sslmode  = undef,
   Optional[Integer]                        $db_maxconn  = undef,
   Optional[String]                         $db_template = undef,

@@ -4,7 +4,7 @@
 class odoo::config {
   assert_private()
 
-  [
+  $raw_params = [
     'admin_passwd',
     'csv_internal_sep',
     'reportgz',
@@ -65,7 +65,9 @@ class odoo::config {
     'limit_time_real',
     'limit_time_real_cron',
     'limit_request',
-  ].each |$raw_param| {
+  ]
+
+  $raw_params.each |$raw_param| {
     $raw_value = getvar("odoo::${raw_param}")
 
     if $raw_value != undef {
