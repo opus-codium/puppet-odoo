@@ -1,0 +1,15 @@
+{
+  "description": "List users of an odoo database",
+  "input_method": "environment",
+  "parameters": {
+    "database": {
+      "description": "Odoo database name",
+      "type": "String[1]"
+    },
+    "contains": {
+      "description": "Filter reported users by login",
+      "type": "Optional[String[1]]"
+    }
+  },
+  "files": ["odoo/files/list-users.py"]
+}
