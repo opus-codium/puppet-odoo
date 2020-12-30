@@ -8,4 +8,4 @@ else:
 
 users = env['res.users'].search(search_filter)
 
-print(json.dumps(users.mapped('login')))
+print(json.dumps({'users': users.mapped('login')}))
