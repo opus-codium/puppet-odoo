@@ -5,7 +5,6 @@ Puppet::Type.newtype(:odoo_config) do
     desc 'setting name to manage from odoo.conf'
   end
 
-  # rubocop:disable Lint/BooleanSymbol
   newproperty(:value) do
     desc 'The value of the setting to define'
     munge do |v|
@@ -60,5 +59,4 @@ Puppet::Type.newtype(:odoo_config) do
       raise(_('expected a boolean value or :md5'))
     end
   end
-  # rubocop:enable Lint/BooleanSymbol
 end
