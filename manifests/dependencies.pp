@@ -15,6 +15,15 @@ class odoo::dependencies {
     # https://www.odoo.com/documentation/12.0/setup/install.html
 
     case $facts.get('os.name') {
+      'debian': {
+        $odoo_dependencies = [
+          'python3-qrcode',
+          'python3-phonenumbers',
+          'python3-pyldap',
+          'python3-vobject',
+        ]
+        $odoo_pip_packages = []
+      }
       'ubuntu': {
         case $facts.get('os.release.full') {
           '16.04': {
