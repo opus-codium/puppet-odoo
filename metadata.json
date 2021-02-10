@@ -19,17 +19,10 @@
   ],
   "operatingsystem_support": [
     {
-      "operatingsystem": "Debian",
+      "operatingsystem": "Ubuntu",
       "operatingsystemrelease": [
-        "9",
-        "10"
-      ]
-    },
-    {
-      "operatingsystem": "FreeBSD",
-      "operatingsystemrelease": [
-        "11",
-        "12"
+        "16.04",
+        "18.04"
       ]
     }
   ],
