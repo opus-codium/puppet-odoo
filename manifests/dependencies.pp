@@ -41,7 +41,7 @@ class odoo::dependencies {
             $odoo_pip_packages = []
           }
           default: {
-            warning("Please contribute support for ubuntu {facts.get('os.release.full')}")
+            warning("Please contribute support for ubuntu ${facts.get('os.release.full')}")
             $odoo_dependencies = []
             $odoo_pip_packages = []
           }
