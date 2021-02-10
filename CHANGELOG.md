@@ -2,8 +2,17 @@
 
 All notable changes to this project will be documented in this file.
 
-The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
-and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
+The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
+and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+
+## [1.0.2](https://github.com/opus-codium/puppet-odoo/tree/1.0.2) (2021-02-10)
+
+[Full Changelog](https://github.com/opus-codium/puppet-odoo/compare/1.0.1...1.0.2)
+
+**Fixed bugs:**
+
+- Fix advertised OS support [\#26](https://github.com/opus-codium/puppet-odoo/pull/26) ([smortex](https://github.com/smortex))
+- Remove explicit data\_provider from metadata.json [\#24](https://github.com/opus-codium/puppet-odoo/pull/24) ([smortex](https://github.com/smortex))
 
 ## [1.0.1](https://github.com/opus-codium/puppet-odoo/tree/1.0.1) (2021-01-13)
 
