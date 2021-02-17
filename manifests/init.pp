@@ -187,6 +187,22 @@ class odoo (
   Optional[Integer]                        $limit_time_real      = undef,
   Optional[Integer]                        $limit_time_real_cron = undef,
 ) {
+  $odoo_supported_versions = {
+    'Debian' => {
+      '9'  => ['11.0', '12.0', '13.0'],
+      '10' => ['11.0', '12.0', '13.0'],
+    },
+    'Ubuntu' => {
+      '16.04' => ['10.0', '11.0', '12.0', '13.0'],
+      '18.04' => ['11.0', '12.0', '13.0'],
+      '20.04' => ['11.0', '12.0', '13.0'],
+    },
+  }
+
+  unless $odoo_supported_versions.dig($facts.get('os.name'), $facts.get('os.release.major')).member($version) {
+    fail("Odoo ${version} cannot be installed on ${facts.get('os.name')} ${facts.get('os.release.major')}")
+  }
+
   contain odoo::wkhtmltox
 
   if versioncmp($version, '11.0') >= 0 {
