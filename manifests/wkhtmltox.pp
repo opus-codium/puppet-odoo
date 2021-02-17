@@ -26,7 +26,9 @@ class odoo::wkhtmltox {
     ],
   }
 
-  archive { "/var/cache/wkhtmltox_${wkhtmltox_version}.deb":
+  $wkhtmltox_filename = "/var/cache/wkhtmltox_${wkhtmltox_version}.${facts.get('os.distro.codename')}_${facts.get('architecture')}.deb"
+
+  archive { $wkhtmltox_filename:
     ensure => present,
     user   => 'root',
     group  => 'root',
@@ -40,9 +42,9 @@ class odoo::wkhtmltox {
   package { 'wkhtmltox':
     ensure   => installed,
     provider => 'dpkg',
-    source   => "/var/cache/wkhtmltox_${wkhtmltox_version}.deb",
+    source   => $wkhtmltox_filename,
     require  => [
-      Archive["/var/cache/wkhtmltox_${wkhtmltox_version}.deb"],
+      Archive[$wkhtmltox_filename],
       Package[$wkhtmltox_dependencies],
     ],
   }
