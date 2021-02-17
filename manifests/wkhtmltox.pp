@@ -6,20 +6,25 @@ class odoo::wkhtmltox {
 
   assert_private()
 
-  $wkhtmltox_version = $odoo::version ? {
-    '13.0'  => '0.12.5',
-    default => '0.12.1.4',
-  }
+  $wkhtmltox_version = '0.12.5'
+  $wkhtmltox_url = "https://github.com/wkhtmltopdf/wkhtmltopdf/releases/download/${wkhtmltox_version}/wkhtmltox_${wkhtmltox_version}-1.${facts.get('os.distro.codename')}_${facts.get('architecture')}.deb"
 
-  $wkhtmltox_url = $odoo::version ? {
-    '13.0'  => "https://github.com/wkhtmltopdf/wkhtmltopdf/releases/download/${wkhtmltox_version}/wkhtmltox_${wkhtmltox_version}-1.${facts.get('os.distro.codename')}_${facts.get('architecture')}.deb",
-    default => "https://builds.wkhtmltopdf.org/${wkhtmltox_version}/wkhtmltox_${wkhtmltox_version}-1.${facts.get('os.distro.codename')}_${facts.get('architecture')}.deb",
+  $wkhtmltox_dependencies = $facts.get('os.name') ? {
+    'Debian' => [
+      'fontconfig',
+      'libjpeg62-turbo',
+      'libxrender1',
+      'xfonts-75dpi',
+      'xfonts-base',
+    ],
+    'Ubuntu' => [
+      'fontconfig',
+      'libjpeg-turbo8',
+      'libxrender1',
+      'xfonts-75dpi',
+      'xfonts-base',
+    ],
   }
-
-  $wkhtmltox_dependencies = [
-    'xfonts-75dpi',
-    'xfonts-base',
-  ]
 
   archive { "/var/cache/wkhtmltox_${wkhtmltox_version}.deb":
     ensure => present,
