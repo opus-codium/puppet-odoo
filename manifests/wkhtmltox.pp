@@ -35,9 +35,7 @@ class odoo::wkhtmltox {
     source => $wkhtmltox_url,
   }
 
-  package { $wkhtmltox_dependencies:
-    ensure => installed,
-  }
+  ensure_packages($wkhtmltox_dependencies, { ensure => installed })
 
   package { 'wkhtmltox':
     ensure   => installed,
