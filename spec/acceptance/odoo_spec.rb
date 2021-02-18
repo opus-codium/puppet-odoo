@@ -34,12 +34,14 @@ describe 'odoo class' do
               }
             }
 
-            package { 'python-pip':
-              ensure => installed,
-            }
-
-            package { 'python3-pip':
-              ensure => installed,
+            if '#{version}' == '10.0' {
+              package { 'python-pip':
+                ensure => installed,
+              }
+            } else {
+              package { 'python3-pip':
+                ensure => installed,
+              }
             }
 
             class { 'odoo':
