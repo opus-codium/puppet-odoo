@@ -36,21 +36,87 @@
 
 ## Classes
 
-### `odoo`
+### <a name="odoo"></a>`odoo`
 
 Configure Odoo
 
 #### Parameters
 
-The following parameters are available in the `odoo` class.
+The following parameters are available in the `odoo` class:
 
-##### `version`
+* [`version`](#version)
+* [`manage_repo`](#manage_repo)
+* [`manage_package`](#manage_package)
+* [`package_ensure`](#package_ensure)
+* [`package_mark`](#package_mark)
+* [`admin_passwd`](#admin_passwd)
+* [`csv_internal_sep`](#csv_internal_sep)
+* [`reportgz`](#reportgz)
+* [`without_demo`](#without_demo)
+* [`import_partial`](#import_partial)
+* [`pidfile`](#pidfile)
+* [`addons_path`](#addons_path)
+* [`upgrades_paths`](#upgrades_paths)
+* [`server_wide_modules`](#server_wide_modules)
+* [`data_dir`](#data_dir)
+* [`http_interface`](#http_interface)
+* [`http_port`](#http_port)
+* [`longpolling_port`](#longpolling_port)
+* [`http_enable`](#http_enable)
+* [`proxy_mode`](#proxy_mode)
+* [`dbfilter`](#dbfilter)
+* [`test_enable`](#test_enable)
+* [`test_file`](#test_file)
+* [`test_tags`](#test_tags)
+* [`screencasts`](#screencasts)
+* [`screenshots`](#screenshots)
+* [`logfile`](#logfile)
+* [`syslog`](#syslog)
+* [`log_handler`](#log_handler)
+* [`log_db`](#log_db)
+* [`log_db_level`](#log_db_level)
+* [`log_level`](#log_level)
+* [`email_from`](#email_from)
+* [`smtp_server`](#smtp_server)
+* [`smtp_port`](#smtp_port)
+* [`smtp_ssl`](#smtp_ssl)
+* [`smtp_user`](#smtp_user)
+* [`smtp_password`](#smtp_password)
+* [`db_name`](#db_name)
+* [`db_user`](#db_user)
+* [`db_password`](#db_password)
+* [`pg_path`](#pg_path)
+* [`db_host`](#db_host)
+* [`db_port`](#db_port)
+* [`db_sslmode`](#db_sslmode)
+* [`db_maxconn`](#db_maxconn)
+* [`db_template`](#db_template)
+* [`language`](#language)
+* [`translate_out`](#translate_out)
+* [`translate_in`](#translate_in)
+* [`overwrite_existing_translations`](#overwrite_existing_translations)
+* [`translate_modules`](#translate_modules)
+* [`list_db`](#list_db)
+* [`osv_memory_count_limit`](#osv_memory_count_limit)
+* [`osv_memory_age_limit`](#osv_memory_age_limit)
+* [`max_cron_threads`](#max_cron_threads)
+* [`unaccent`](#unaccent)
+* [`geoip_database`](#geoip_database)
+* [`workers`](#workers)
+* [`limit_memory_soft`](#limit_memory_soft)
+* [`limit_memory_hard`](#limit_memory_hard)
+* [`limit_time_cpu`](#limit_time_cpu)
+* [`limit_time_real`](#limit_time_real)
+* [`limit_time_real_cron`](#limit_time_real_cron)
+* [`limit_request`](#limit_request)
 
-Data type: `Enum['10.0', '11.0', '12.0', '13.0']`
+##### <a name="version"></a>`version`
+
+Data type: `Enum['10.0', '11.0', '12.0', '13.0', '14.0']`
 
 The version of odoo to install
 
-##### `manage_repo`
+##### <a name="manage_repo"></a>`manage_repo`
 
 Data type: `Boolean`
 
@@ -58,7 +124,7 @@ Manage the odoo reposiroty
 
 Default value: ``true``
 
-##### `manage_package`
+##### <a name="manage_package"></a>`manage_package`
 
 Data type: `Boolean`
 
@@ -66,7 +132,7 @@ Manage the odoo package
 
 Default value: ``true``
 
-##### `package_ensure`
+##### <a name="package_ensure"></a>`package_ensure`
 
 Data type: `String`
 
@@ -74,7 +140,7 @@ Ensure value for the odoo package
 
 Default value: `'present'`
 
-##### `package_mark`
+##### <a name="package_mark"></a>`package_mark`
 
 Data type: `Optional[Enum['hold', 'none']]`
 
@@ -82,7 +148,7 @@ Mark value for the odoo package
 
 Default value: ``undef``
 
-##### `admin_passwd`
+##### <a name="admin_passwd"></a>`admin_passwd`
 
 Data type: `Optional[Sensitive]`
 
@@ -90,7 +156,7 @@ Password that allows database operations
 
 Default value: ``undef``
 
-##### `csv_internal_sep`
+##### <a name="csv_internal_sep"></a>`csv_internal_sep`
 
 Data type: `Optional[String]`
 
@@ -98,7 +164,7 @@ Legacy (now unused)
 
 Default value: ``undef``
 
-##### `reportgz`
+##### <a name="reportgz"></a>`reportgz`
 
 Data type: `Optional[String]`
 
@@ -106,7 +172,7 @@ Legacy (now unused)
 
 Default value: ``undef``
 
-##### `without_demo`
+##### <a name="without_demo"></a>`without_demo`
 
 Data type: `Optional[Variant[Array[String],Boolean]]`
 
@@ -114,7 +180,7 @@ Disable loading demo data for modules to be installed (comma-separated, use \"al
 
 Default value: ``undef``
 
-##### `import_partial`
+##### <a name="import_partial"></a>`import_partial`
 
 Data type: `Optional[String]`
 
@@ -122,7 +188,7 @@ Use this for big data importation, if it crashes you will be able to continue at
 
 Default value: ``undef``
 
-##### `pidfile`
+##### <a name="pidfile"></a>`pidfile`
 
 Data type: `Optional[Stdlib::Absolutepath]`
 
@@ -130,7 +196,7 @@ File where the server pid will be stored
 
 Default value: ``undef``
 
-##### `addons_path`
+##### <a name="addons_path"></a>`addons_path`
 
 Data type: `Optional[Array[String]]`
 
@@ -138,7 +204,7 @@ Additional addons paths
 
 Default value: ``undef``
 
-##### `upgrades_paths`
+##### <a name="upgrades_paths"></a>`upgrades_paths`
 
 Data type: `Optional[Array[String]]`
 
@@ -146,7 +212,7 @@ Additional upgrades path
 
 Default value: ``undef``
 
-##### `server_wide_modules`
+##### <a name="server_wide_modules"></a>`server_wide_modules`
 
 Data type: `Optional[Array[String]]`
 
@@ -154,7 +220,7 @@ List of server-wide modules
 
 Default value: ``undef``
 
-##### `data_dir`
+##### <a name="data_dir"></a>`data_dir`
 
 Data type: `Optional[String]`
 
@@ -162,7 +228,7 @@ Directory where to store Odoo data
 
 Default value: ``undef``
 
-##### `http_interface`
+##### <a name="http_interface"></a>`http_interface`
 
 Data type: `Optional[String]`
 
@@ -170,7 +236,7 @@ Listen interface address for HTTP services
 
 Default value: ``undef``
 
-##### `http_port`
+##### <a name="http_port"></a>`http_port`
 
 Data type: `Optional[Integer]`
 
@@ -178,7 +244,7 @@ Listen port for the main HTTP service
 
 Default value: ``undef``
 
-##### `longpolling_port`
+##### <a name="longpolling_port"></a>`longpolling_port`
 
 Data type: `Optional[Integer]`
 
@@ -186,7 +252,7 @@ Listen port for the longpolling HTTP service
 
 Default value: ``undef``
 
-##### `http_enable`
+##### <a name="http_enable"></a>`http_enable`
 
 Data type: `Optional[Boolean]`
 
@@ -194,7 +260,7 @@ Disable the HTTP and Longpolling services entirely
 
 Default value: ``undef``
 
-##### `proxy_mode`
+##### <a name="proxy_mode"></a>`proxy_mode`
 
 Data type: `Optional[Boolean]`
 
@@ -202,7 +268,7 @@ Activate reverse proxy WSGI wrappers
 
 Default value: ``undef``
 
-##### `dbfilter`
+##### <a name="dbfilter"></a>`dbfilter`
 
 Data type: `Optional[String]`
 
@@ -210,7 +276,7 @@ Regular expressions for filtering available databases for Web UI
 
 Default value: ``undef``
 
-##### `test_enable`
+##### <a name="test_enable"></a>`test_enable`
 
 Data type: `Optional[Boolean]`
 
@@ -218,7 +284,7 @@ Enable unit tests
 
 Default value: ``undef``
 
-##### `test_file`
+##### <a name="test_file"></a>`test_file`
 
 Data type: `Optional[String]`
 
@@ -226,7 +292,7 @@ Launch a python test file
 
 Default value: ``undef``
 
-##### `test_tags`
+##### <a name="test_tags"></a>`test_tags`
 
 Data type: `Optional[Array[String]]`
 
@@ -234,7 +300,7 @@ List of spec to filter which tests to execute
 
 Default value: ``undef``
 
-##### `screencasts`
+##### <a name="screencasts"></a>`screencasts`
 
 Data type: `Optional[String]`
 
@@ -242,7 +308,7 @@ Screencasts will go in $screencasts/<db_name>/screencasts
 
 Default value: ``undef``
 
-##### `screenshots`
+##### <a name="screenshots"></a>`screenshots`
 
 Data type: `Optional[String]`
 
@@ -250,7 +316,7 @@ Screenshots will go in $screenshots/<db_name>/screenshots
 
 Default value: ``undef``
 
-##### `logfile`
+##### <a name="logfile"></a>`logfile`
 
 Data type: `Optional[Stdlib::Absolutepath]`
 
@@ -258,7 +324,7 @@ File where the server log will be stored
 
 Default value: ``undef``
 
-##### `syslog`
+##### <a name="syslog"></a>`syslog`
 
 Data type: `Optional[Boolean]`
 
@@ -266,7 +332,7 @@ Send the log to the syslog server
 
 Default value: ``undef``
 
-##### `log_handler`
+##### <a name="log_handler"></a>`log_handler`
 
 Data type: `Optional[String]`
 
@@ -274,7 +340,7 @@ Setup a handler of PREFIX:LEVEL
 
 Default value: ``undef``
 
-##### `log_db`
+##### <a name="log_db"></a>`log_db`
 
 Data type: `Optional[String]`
 
@@ -282,7 +348,7 @@ Logging database
 
 Default value: ``undef``
 
-##### `log_db_level`
+##### <a name="log_db_level"></a>`log_db_level`
 
 Data type: `Optional[String]`
 
@@ -290,7 +356,7 @@ Logging database level
 
 Default value: ``undef``
 
-##### `log_level`
+##### <a name="log_level"></a>`log_level`
 
 Data type: `Optional[Enum[
       'info',
@@ -309,7 +375,7 @@ Level of the logging
 
 Default value: ``undef``
 
-##### `email_from`
+##### <a name="email_from"></a>`email_from`
 
 Data type: `Optional[String]`
 
@@ -317,7 +383,7 @@ SMTP email address for sending email
 
 Default value: ``undef``
 
-##### `smtp_server`
+##### <a name="smtp_server"></a>`smtp_server`
 
 Data type: `Optional[String]`
 
@@ -325,7 +391,7 @@ SMTP server for sending email
 
 Default value: ``undef``
 
-##### `smtp_port`
+##### <a name="smtp_port"></a>`smtp_port`
 
 Data type: `Optional[Integer]`
 
@@ -333,7 +399,7 @@ SMTP port
 
 Default value: ``undef``
 
-##### `smtp_ssl`
+##### <a name="smtp_ssl"></a>`smtp_ssl`
 
 Data type: `Optional[Boolean]`
 
@@ -341,7 +407,7 @@ Encrypt SMTP connections with StARTTLS
 
 Default value: ``undef``
 
-##### `smtp_user`
+##### <a name="smtp_user"></a>`smtp_user`
 
 Data type: `Optional[String]`
 
@@ -349,7 +415,7 @@ SMTP username for sending email
 
 Default value: ``undef``
 
-##### `smtp_password`
+##### <a name="smtp_password"></a>`smtp_password`
 
 Data type: `Optional[Sensitive]`
 
@@ -357,7 +423,7 @@ SMTP password for sending email
 
 Default value: ``undef``
 
-##### `db_name`
+##### <a name="db_name"></a>`db_name`
 
 Data type: `Optional[String]`
 
@@ -365,7 +431,7 @@ Database name
 
 Default value: ``undef``
 
-##### `db_user`
+##### <a name="db_user"></a>`db_user`
 
 Data type: `Optional[String]`
 
@@ -373,7 +439,7 @@ Database user name
 
 Default value: `'odoo'`
 
-##### `db_password`
+##### <a name="db_password"></a>`db_password`
 
 Data type: `Optional[Variant[Boolean,Sensitive]]`
 
@@ -381,7 +447,7 @@ Database password
 
 Default value: ``false``
 
-##### `pg_path`
+##### <a name="pg_path"></a>`pg_path`
 
 Data type: `Optional[String]`
 
@@ -389,7 +455,7 @@ PostgreSQL executable path
 
 Default value: ``undef``
 
-##### `db_host`
+##### <a name="db_host"></a>`db_host`
 
 Data type: `Optional[Variant[Boolean,String]]`
 
@@ -397,7 +463,7 @@ Database host
 
 Default value: ``false``
 
-##### `db_port`
+##### <a name="db_port"></a>`db_port`
 
 Data type: `Optional[Variant[Boolean,Integer]]`
 
@@ -405,7 +471,7 @@ Database port
 
 Default value: ``false``
 
-##### `db_sslmode`
+##### <a name="db_sslmode"></a>`db_sslmode`
 
 Data type: `Optional[Enum[
       'disable',
@@ -420,7 +486,7 @@ Database ssl connection mode
 
 Default value: ``undef``
 
-##### `db_maxconn`
+##### <a name="db_maxconn"></a>`db_maxconn`
 
 Data type: `Optional[Integer]`
 
@@ -428,7 +494,7 @@ Maximum number of physical connections to PostgreSQL
 
 Default value: ``undef``
 
-##### `db_template`
+##### <a name="db_template"></a>`db_template`
 
 Data type: `Optional[String]`
 
@@ -436,7 +502,7 @@ Custom database template to create a new database
 
 Default value: ``undef``
 
-##### `language`
+##### <a name="language"></a>`language`
 
 Data type: `Optional[String]`
 
@@ -444,7 +510,7 @@ Language of the translation file
 
 Default value: ``undef``
 
-##### `translate_out`
+##### <a name="translate_out"></a>`translate_out`
 
 Data type: `Optional[Boolean]`
 
@@ -452,7 +518,7 @@ Export all sentences to be translated to a CSV file, a PO file or a TGZ archive 
 
 Default value: ``undef``
 
-##### `translate_in`
+##### <a name="translate_in"></a>`translate_in`
 
 Data type: `Optional[Boolean]`
 
@@ -460,7 +526,7 @@ Import a CSV or a PO file with translations and exit
 
 Default value: ``undef``
 
-##### `overwrite_existing_translations`
+##### <a name="overwrite_existing_translations"></a>`overwrite_existing_translations`
 
 Data type: `Optional[Boolean]`
 
@@ -468,7 +534,7 @@ Overwrites existing translation terms on updating a module or importing a CSV or
 
 Default value: ``undef``
 
-##### `translate_modules`
+##### <a name="translate_modules"></a>`translate_modules`
 
 Data type: `Optional[Array[String]]`
 
@@ -476,7 +542,7 @@ Modules to export
 
 Default value: ``undef``
 
-##### `list_db`
+##### <a name="list_db"></a>`list_db`
 
 Data type: `Optional[Boolean]`
 
@@ -484,7 +550,7 @@ Disable the ability to obtain or view the list of databases
 
 Default value: ``undef``
 
-##### `osv_memory_count_limit`
+##### <a name="osv_memory_count_limit"></a>`osv_memory_count_limit`
 
 Data type: `Optional[Integer]`
 
@@ -492,7 +558,7 @@ Force a limit on the maximum number of records kept in the virtual osv_memory ta
 
 Default value: ``undef``
 
-##### `osv_memory_age_limit`
+##### <a name="osv_memory_age_limit"></a>`osv_memory_age_limit`
 
 Data type: `Optional[Float]`
 
@@ -500,7 +566,7 @@ Force a limit on the maximum age of records kept in the virtual osv_memory
 
 Default value: ``undef``
 
-##### `max_cron_threads`
+##### <a name="max_cron_threads"></a>`max_cron_threads`
 
 Data type: `Optional[Integer]`
 
@@ -508,7 +574,7 @@ Maximum number of threads processing concurrently cron jobs
 
 Default value: ``undef``
 
-##### `unaccent`
+##### <a name="unaccent"></a>`unaccent`
 
 Data type: `Optional[Boolean]`
 
@@ -516,7 +582,7 @@ Use the unaccent function provided by the database when available
 
 Default value: ``undef``
 
-##### `geoip_database`
+##### <a name="geoip_database"></a>`geoip_database`
 
 Data type: `Optional[Stdlib::Absolutepath]`
 
@@ -524,7 +590,7 @@ Absolute path to the GeoIP database file
 
 Default value: ``undef``
 
-##### `workers`
+##### <a name="workers"></a>`workers`
 
 Data type: `Optional[Integer]`
 
@@ -532,7 +598,7 @@ Number of workers
 
 Default value: ``undef``
 
-##### `limit_memory_soft`
+##### <a name="limit_memory_soft"></a>`limit_memory_soft`
 
 Data type: `Optional[Integer]`
 
@@ -540,7 +606,7 @@ Maximum allowed virtual memory per worker, when reached the worker be reset afte
 
 Default value: ``undef``
 
-##### `limit_memory_hard`
+##### <a name="limit_memory_hard"></a>`limit_memory_hard`
 
 Data type: `Optional[Integer]`
 
@@ -548,7 +614,7 @@ Maximum allowed virtual memory per worker, when reached, any memory allocation w
 
 Default value: ``undef``
 
-##### `limit_time_cpu`
+##### <a name="limit_time_cpu"></a>`limit_time_cpu`
 
 Data type: `Optional[Integer]`
 
@@ -556,7 +622,7 @@ Maximum allowed CPU time per request
 
 Default value: ``undef``
 
-##### `limit_time_real`
+##### <a name="limit_time_real"></a>`limit_time_real`
 
 Data type: `Optional[Integer]`
 
@@ -564,7 +630,7 @@ Maximum allowed Real time per request
 
 Default value: ``undef``
 
-##### `limit_time_real_cron`
+##### <a name="limit_time_real_cron"></a>`limit_time_real_cron`
 
 Data type: `Optional[Integer]`
 
@@ -572,7 +638,7 @@ Maximum allowed Real time per cron job
 
 Default value: ``undef``
 
-##### `limit_request`
+##### <a name="limit_request"></a>`limit_request`
 
 Data type: `Optional[Integer]`
 
@@ -582,7 +648,7 @@ Default value: ``undef``
 
 ## Resource types
 
-### `odoo_config`
+### <a name="odoo_config"></a>`odoo_config`
 
 setting name to manage from odoo.conf
 
@@ -606,18 +672,22 @@ The value of the setting to define
 
 The following parameters are available in the `odoo_config` type.
 
-##### `name`
+* [`name`](#name)
+* [`provider`](#provider)
+* [`show_diff`](#show_diff)
+
+##### <a name="name"></a>`name`
 
 namevar
 
 setting name to manage from odoo.conf
 
-##### `provider`
+##### <a name="provider"></a>`provider`
 
 The specific backend to use for this `odoo_config` resource. You will seldom need to specify this --- Puppet will
 usually discover the appropriate provider for your platform.
 
-##### `show_diff`
+##### <a name="show_diff"></a>`show_diff`
 
 Valid values: ``true``, `md5`, ``false``
 
@@ -627,7 +697,7 @@ Default value: ``true``
 
 ## Tasks
 
-### `change_user_password`
+### <a name="change_user_password"></a>`change_user_password`
 
 Change the password of an user
 
@@ -653,7 +723,7 @@ Data type: `String[1]`
 
 New password for the user (encrypted)
 
-### `database_backup`
+### <a name="database_backup"></a>`database_backup`
 
 Backup an odoo database
 
@@ -679,7 +749,7 @@ Data type: `Enum['zip']`
 
 Backup format
 
-### `database_delete`
+### <a name="database_delete"></a>`database_delete`
 
 Delete an odoo database
 
@@ -693,7 +763,7 @@ Data type: `String`
 
 Odoo database name
 
-### `database_duplicate`
+### <a name="database_duplicate"></a>`database_duplicate`
 
 Duplicate an odoo database
 
@@ -713,7 +783,7 @@ Data type: `String`
 
 Name of the new Odoo database
 
-### `database_rename`
+### <a name="database_rename"></a>`database_rename`
 
 Rename an odoo database
 
@@ -733,7 +803,7 @@ Data type: `String`
 
 New database name (must not exist)
 
-### `database_restore`
+### <a name="database_restore"></a>`database_restore`
 
 Restore an odoo database
 
@@ -759,13 +829,13 @@ Data type: `Boolean`
 
 
 
-### `databases_list`
+### <a name="databases_list"></a>`databases_list`
 
 List odoo databases
 
 **Supports noop?** false
 
-### `list_users`
+### <a name="list_users"></a>`list_users`
 
 List users of an odoo database
 

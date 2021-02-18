@@ -5,6 +5,22 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.1.0](https://github.com/opus-codium/puppet-odoo/tree/1.1.0) (2021-02-18)
+
+[Full Changelog](https://github.com/opus-codium/puppet-odoo/compare/1.0.2...1.1.0)
+
+**Implemented enhancements:**
+
+- Add support for Ubuntu 20.04 [\#33](https://github.com/opus-codium/puppet-odoo/pull/33) ([smortex](https://github.com/smortex))
+- Report incompatible Odoo and OS versions [\#31](https://github.com/opus-codium/puppet-odoo/pull/31) ([smortex](https://github.com/smortex))
+- Add support for Odoo 14.0 [\#29](https://github.com/opus-codium/puppet-odoo/pull/29) ([smortex](https://github.com/smortex))
+- Add support for Debian [\#28](https://github.com/opus-codium/puppet-odoo/pull/28) ([smortex](https://github.com/smortex))
+
+**Fixed bugs:**
+
+- Fix installation of wkhtmltopdf [\#32](https://github.com/opus-codium/puppet-odoo/pull/32) ([smortex](https://github.com/smortex))
+- Fix module dependencies [\#30](https://github.com/opus-codium/puppet-odoo/pull/30) ([smortex](https://github.com/smortex))
+
 ## [1.0.2](https://github.com/opus-codium/puppet-odoo/tree/1.0.2) (2021-02-10)
 
 [Full Changelog](https://github.com/opus-codium/puppet-odoo/compare/1.0.1...1.0.2)
