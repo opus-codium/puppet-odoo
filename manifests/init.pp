@@ -145,11 +145,11 @@ class odoo (
 
   # Database related options
   Optional[String]                         $db_name     = undef,
-  Optional[String]                         $db_user     = 'odoo',
-  Optional[Variant[Boolean,Sensitive]]     $db_password = false,
+  String[1]                                $db_user     = 'odoo',
+  Variant[Boolean[false],Sensitive]        $db_password = false,
   Optional[String]                         $pg_path     = undef,
-  Optional[Variant[Boolean,String]]        $db_host     = false,
-  Optional[Variant[Boolean,Integer]]       $db_port     = false,
+  Variant[Boolean[false],String]           $db_host     = false,
+  Variant[Boolean[false],Integer]          $db_port     = false,
   Optional[Enum[
       'disable',
       'allow',
