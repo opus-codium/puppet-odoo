@@ -26,19 +26,6 @@ class odoo::dependencies {
       }
       'ubuntu': {
         case $facts.get('os.release.full') {
-          '16.04': {
-            $odoo_dependencies = [
-              'libldap2-dev',
-              'libsasl2-dev',
-            ]
-
-            $odoo_pip_packages = [
-              'phonenumbers',
-              'pyldap',
-              'qrcode',
-              'vobject',
-            ]
-          }
           '18.04': {
             $odoo_dependencies = [
               'python3-qrcode',
