@@ -145,11 +145,11 @@ class odoo (
 
   # Database related options
   Optional[String]                         $db_name     = undef,
-  Optional[String]                         $db_user     = 'odoo',
-  Optional[Variant[Boolean,Sensitive]]     $db_password = false,
+  String[1]                                $db_user     = 'odoo',
+  Variant[Boolean[false],Sensitive]        $db_password = false,
   Optional[String]                         $pg_path     = undef,
-  Optional[Variant[Boolean,String]]        $db_host     = false,
-  Optional[Variant[Boolean,Integer]]       $db_port     = false,
+  Variant[Boolean[false],String]           $db_host     = false,
+  Variant[Boolean[false],Integer]          $db_port     = false,
   Optional[Enum[
       'disable',
       'allow',
@@ -191,6 +191,7 @@ class odoo (
     'Debian' => {
       '9'  => ['11.0', '12.0', '13.0', '14.0'],
       '10' => ['11.0', '12.0', '13.0', '14.0'],
+      '11' => ['11.0', '12.0', '13.0', '14.0'],
     },
     'Ubuntu' => {
       '16.04' => ['10.0', '11.0', '12.0', '13.0', '14.0'],
