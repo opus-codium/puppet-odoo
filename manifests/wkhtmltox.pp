@@ -2,8 +2,6 @@
 #
 # @api private
 class odoo::wkhtmltox {
-  include odoo
-
   assert_private()
 
   $wkhtmltox_version = '0.12.5'
