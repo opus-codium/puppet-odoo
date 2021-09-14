@@ -79,6 +79,7 @@
 # @param limit_request Maximum number of request to be processed per worker
 class odoo (
   Enum['10.0', '11.0', '12.0', '13.0', '14.0'] $version,
+  Optional[Enum['wkhtmltox']]                  $wkhtmltopdf = undef,
 
   Boolean $manage_repo    = true,
   Boolean $manage_package = true,
@@ -204,7 +205,9 @@ class odoo (
     fail("Odoo ${version} cannot be installed on ${facts.get('os.name')} ${facts.get('os.release.major')}")
   }
 
-  contain odoo::wkhtmltox
+  if $odoo::wkhtmltopdf == 'wkhtmltox' {
+    contain odoo::wkhtmltox
+  }
 
   if versioncmp($version, '11.0') >= 0 {
     $pip_provider = 'pip3'
