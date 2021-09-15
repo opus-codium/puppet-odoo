@@ -5,9 +5,28 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [1.2.0](https://github.com/opus-codium/puppet-odoo/tree/1.2.0) (2021-05-14)
+## [2.0.0](https://github.com/opus-codium/puppet-odoo/tree/2.0.0) (2021-09-15)
 
-[Full Changelog](https://github.com/opus-codium/puppet-odoo/compare/1.2.0...1.2.0)
+[Full Changelog](https://github.com/opus-codium/puppet-odoo/compare/1.2.1...2.0.0)
+
+**Breaking changes:**
+
+- Drop support for Debian 9 \(EOL\) [\#44](https://github.com/opus-codium/puppet-odoo/pull/44) ([smortex](https://github.com/smortex))
+- Drop support for Ubuntu 16.04 \(EOL\) [\#41](https://github.com/opus-codium/puppet-odoo/pull/41) ([smortex](https://github.com/smortex))
+
+**Implemented enhancements:**
+
+- Make wkhtmltox package management optional [\#45](https://github.com/opus-codium/puppet-odoo/pull/45) ([smortex](https://github.com/smortex))
+- Allow to install Debian 11's odoo-14 package [\#43](https://github.com/opus-codium/puppet-odoo/pull/43) ([smortex](https://github.com/smortex))
+- Add support for Debian 11 [\#40](https://github.com/opus-codium/puppet-odoo/pull/40) ([smortex](https://github.com/smortex))
+
+**Merged pull requests:**
+
+- Allow up-to-date dependencies [\#42](https://github.com/opus-codium/puppet-odoo/pull/42) ([smortex](https://github.com/smortex))
+
+## [1.2.1](https://github.com/opus-codium/puppet-odoo/tree/1.2.1) (2021-05-14)
+
+[Full Changelog](https://github.com/opus-codium/puppet-odoo/compare/1.2.0...1.2.1)
 
 **Fixed bugs:**
 

@@ -45,8 +45,9 @@ Configure Odoo
 The following parameters are available in the `odoo` class:
 
 * [`version`](#version)
-* [`manage_repo`](#manage_repo)
+* [`wkhtmltopdf`](#wkhtmltopdf)
 * [`manage_package`](#manage_package)
+* [`package_name`](#package_name)
 * [`package_ensure`](#package_ensure)
 * [`package_mark`](#package_mark)
 * [`admin_passwd`](#admin_passwd)
@@ -112,17 +113,19 @@ The following parameters are available in the `odoo` class:
 
 ##### <a name="version"></a>`version`
 
-Data type: `Enum['10.0', '11.0', '12.0', '13.0', '14.0']`
+Data type: `Enum['10.0', '11.0', '12.0', '13.0', '14.0', 'system']`
 
 The version of odoo to install
 
-##### <a name="manage_repo"></a>`manage_repo`
+Default value: ``undef``
 
-Data type: `Boolean`
+##### <a name="wkhtmltopdf"></a>`wkhtmltopdf`
 
-Manage the odoo reposiroty
+Data type: `Optional[Enum['wkhtmltox']]`
 
-Default value: ``true``
+How to manage wkhtmltopdf
+
+Default value: ``undef``
 
 ##### <a name="manage_package"></a>`manage_package`
 
@@ -131,6 +134,14 @@ Data type: `Boolean`
 Manage the odoo package
 
 Default value: ``true``
+
+##### <a name="package_name"></a>`package_name`
+
+Data type: `String[1]`
+
+The name of the odoo package
+
+Default value: `'odoo'`
 
 ##### <a name="package_ensure"></a>`package_ensure`
 
@@ -433,7 +444,7 @@ Default value: ``undef``
 
 ##### <a name="db_user"></a>`db_user`
 
-Data type: `Optional[String]`
+Data type: `String[1]`
 
 Database user name
 
@@ -441,7 +452,7 @@ Default value: `'odoo'`
 
 ##### <a name="db_password"></a>`db_password`
 
-Data type: `Optional[Variant[Boolean,Sensitive]]`
+Data type: `Variant[Boolean[false],Sensitive]`
 
 Database password
 
@@ -457,7 +468,7 @@ Default value: ``undef``
 
 ##### <a name="db_host"></a>`db_host`
 
-Data type: `Optional[Variant[Boolean,String]]`
+Data type: `Variant[Boolean[false],String]`
 
 Database host
 
@@ -465,7 +476,7 @@ Default value: ``false``
 
 ##### <a name="db_port"></a>`db_port`
 
-Data type: `Optional[Variant[Boolean,Integer]]`
+Data type: `Variant[Boolean[false],Integer]`
 
 Database port
 

@@ -1,7 +1,9 @@
 # @summary Configure Odoo
 #
 # @param version The version of odoo to install
+# @param wkhtmltopdf How to manage wkhtmltopdf
 # @param manage_package Manage the odoo package
+# @param package_name The name of the odoo package
 # @param package_ensure Ensure value for the odoo package
 # @param package_mark Mark value for the odoo package
 #
