@@ -5,7 +5,7 @@ def odoo_supported_versions
     'Debian' => {
       '9'  => ['11.0', '12.0', '13.0', '14.0'],
       '10' => ['11.0', '12.0', '13.0', '14.0'],
-      '11' => ['11.0', '12.0', '13.0', '14.0'],
+      '11' => ['system'],
     },
     'Ubuntu' => {
       '18.04' => ['11.0', '12.0', '13.0', '14.0'],
@@ -16,43 +16,68 @@ end
 
 describe 'odoo class' do
   odoo_supported_versions.each do |version|
-    context "when using odoo #{version}" do
+    context "when using odoo version=#{version.inspect}" do
       let(:version) { version }
 
-      it 'works idempotently with no errors' do
-        # FIXME: We should not tweak anything here, the odoo class should be self-contained
-        pp = <<~MANIFEST
-          if $facts.get('os.name') == 'debian' {
-            class { 'apt::backports':
+      if version == 'system'
+        it 'works idempotently with no errors' do
+          pp = <<~MANIFEST
+            class { 'apt':
+              purge => {
+                'sources.list.d' => true,
+              },
             }
-          }
-          if $facts.get('os.name') == 'ubuntu' {
-            apt::source { 'ubuntu-universe':
-              location => 'http://archive.ubuntu.com/ubuntu',
-              repos    => 'universe',
+
+            class { 'odoo':
+              version => '#{version}'
             }
-          }
+          MANIFEST
 
-          if '#{version}' == '10.0' {
-            package { 'python-pip':
-              ensure => installed,
+          apply_manifest(pp, catch_failures: true)
+          apply_manifest(pp, catch_changes: true)
+        end
+      else
+        it 'works idempotently with no errors' do
+          # FIXME: We should not tweak anything here, the odoo class should be self-contained
+          pp = <<~MANIFEST
+            class { 'apt':
+              purge => {
+                'sources.list.d' => true,
+              },
             }
-          } else {
-            package { 'python3-pip':
-              ensure => installed,
+
+            if $facts.get('os.name') == 'debian' {
+              class { 'apt::backports':
+              }
             }
-          }
+            if $facts.get('os.name') == 'ubuntu' {
+              apt::source { 'ubuntu-universe':
+                location => 'http://archive.ubuntu.com/ubuntu',
+                repos    => 'universe',
+              }
+            }
 
-          class { 'odoo':
-            version => '#{version}'
-          }
+            if '#{version}' == '10.0' {
+              package { 'python-pip':
+                ensure => installed,
+              }
+            } else {
+              package { 'python3-pip':
+                ensure => installed,
+              }
+            }
 
-          Class['apt::update']
-          -> Class['odoo::dependencies']
-        MANIFEST
+            class { 'odoo':
+              version => '#{version}'
+            }
 
-        apply_manifest(pp, catch_failures: true)
-        apply_manifest(pp, catch_changes: true)
+            Class['apt::update']
+            -> Class['odoo::dependencies']
+          MANIFEST
+
+          apply_manifest(pp, catch_failures: true)
+          apply_manifest(pp, catch_changes: true)
+        end
       end
     end
   end

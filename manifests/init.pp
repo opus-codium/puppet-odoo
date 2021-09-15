@@ -1,7 +1,6 @@
 # @summary Configure Odoo
 #
 # @param version The version of odoo to install
-# @param manage_repo Manage the odoo reposiroty
 # @param manage_package Manage the odoo package
 # @param package_ensure Ensure value for the odoo package
 # @param package_mark Mark value for the odoo package
@@ -78,10 +77,11 @@
 # @param limit_time_real_cron Maximum allowed Real time per cron job
 # @param limit_request Maximum number of request to be processed per worker
 class odoo (
-  Enum['10.0', '11.0', '12.0', '13.0', '14.0'] $version,
+  Enum['10.0', '11.0', '12.0', '13.0', '14.0', 'system'] $version = undef,
+  Optional[Enum['wkhtmltox']]                            $wkhtmltopdf = undef,
 
-  Boolean $manage_repo    = true,
-  Boolean $manage_package = true,
+  Boolean   $manage_package = true,
+  String[1] $package_name   = 'odoo',
 
   String                         $package_ensure = 'present',
   Optional[Enum['hold', 'none']] $package_mark   = undef,
@@ -191,7 +191,7 @@ class odoo (
     'Debian' => {
       '9'  => ['11.0', '12.0', '13.0', '14.0'],
       '10' => ['11.0', '12.0', '13.0', '14.0'],
-      '11' => ['11.0', '12.0', '13.0', '14.0'],
+      '11' => ['system'],
     },
     'Ubuntu' => {
       '16.04' => ['10.0', '11.0', '12.0', '13.0', '14.0'],
@@ -204,23 +204,28 @@ class odoo (
     fail("Odoo ${version} cannot be installed on ${facts.get('os.name')} ${facts.get('os.release.major')}")
   }
 
-  contain odoo::wkhtmltox
-
-  if versioncmp($version, '11.0') >= 0 {
-    $pip_provider = 'pip3'
-    $pip_package  = 'python3-pip'
-
-    $http_enable_setting    = 'http_enable'
-    $http_interface_setting = 'http_interface'
-    $http_port_setting      = 'http_port'
-  } else {
-    $pip_provider = 'pip'
-    $pip_package  = 'python-pip'
-
-    $http_enable_setting    = 'xmlrpc'
-    $http_interface_setting = 'xmlrpc_interface'
-    $http_port_setting      = 'xmlrpc_port'
+  if $odoo::wkhtmltopdf == 'wkhtmltox' {
+    contain odoo::wkhtmltox
   }
+
+  if $version {
+    if versioncmp($version, '11.0') >= 0 {
+      $pip_provider = 'pip3'
+      $pip_package  = 'python3-pip'
+
+      $http_enable_setting    = 'http_enable'
+      $http_interface_setting = 'http_interface'
+      $http_port_setting      = 'http_port'
+    } else {
+      $pip_provider = 'pip'
+      $pip_package  = 'python-pip'
+
+      $http_enable_setting    = 'xmlrpc'
+      $http_interface_setting = 'xmlrpc_interface'
+      $http_port_setting      = 'xmlrpc_port'
+    }
+  }
+
   contain odoo::repo
   contain odoo::dependencies
   contain odoo::package

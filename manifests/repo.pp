@@ -4,7 +4,7 @@
 class odoo::repo {
   assert_private()
 
-  if $odoo::manage_repo {
+  unless $odoo::version == 'system' {
     case $facts.get('os.family') {
       'debian': {
         apt::source { 'odoo':

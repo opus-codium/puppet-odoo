@@ -26,6 +26,8 @@ def build_odoo_fact
         'minor': parts[1],
         'date': parts[2],
       }
+      if len(parts) > 2:
+          res['release']['date'] = parts[2]
 
       res['databases'] = {}
 
