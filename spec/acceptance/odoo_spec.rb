@@ -18,7 +18,7 @@ describe 'odoo class' do
   context 'when installing odoo from git' do
     it 'works idempotently with no errors' do
       pp = <<~MANIFEST
-        package { ['git', 'python3-setuptools', 'python3-pip']:
+        package { ['git', 'python3-setuptools']:
           ensure => installed
         }
         -> class { 'python':
