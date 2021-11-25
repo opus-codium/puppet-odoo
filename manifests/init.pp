@@ -12,6 +12,7 @@
 #
 # @param manage_vcsrepo Manage oddo git repository (when installing from vcsrepo)
 # @param vcsrepo_path Path to oddo git repository (when installing from vcsrepo)
+# @param vcsrepo_depth Shallow clone odoo git repository (when installing from vcsrepo), set to 0 to not shallow clone
 #
 # @param manage_venv Manage oddo virtual env (when installing from vcsrepo)
 # @param venv_path Path to oddo virtual env (when installing from vcsrepo)
@@ -100,6 +101,7 @@ class odoo (
 
   Boolean              $manage_vcsrepo = true,
   Stdlib::Absolutepath $vcsrepo_path   = "/opt/odoo-${version}",
+  Integer[0]           $vcsrepo_depth  = 1,
 
   Boolean              $manage_venv = true,
   Stdlib::Absolutepath $venv_path   = "/opt/odoo-${version}-venv",

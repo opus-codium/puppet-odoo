@@ -17,6 +17,7 @@ class odoo::vcsrepo {
       owner    => 'odoo',
       source   => 'https://github.com/odoo/odoo',
       revision => $odoo::version,
+      depth    => $odoo::vcsrepo_depth,
     }
   }
 }
