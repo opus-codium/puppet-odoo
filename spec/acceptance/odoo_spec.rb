@@ -20,7 +20,7 @@ describe 'odoo class' do
       pp = <<~MANIFEST
         class { 'python':
           version => '3',
-          dev     => 'present',
+          pip     => 'present',
         }
 
         class { 'odoo':

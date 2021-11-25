@@ -220,7 +220,7 @@ class odoo (
     },
   }
 
-  unless $odoo_supported_versions.dig($facts.get('os.name'), $facts.get('os.release.major')).member($version) {
+  if $install_from == 'package' and ! $odoo_supported_versions.dig($facts.get('os.name'), $facts.get('os.release.major')).member($version) {
     fail("Odoo ${version} cannot be installed on ${facts.get('os.name')} ${facts.get('os.release.major')}")
   }
 
