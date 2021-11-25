@@ -2,11 +2,19 @@
 #
 # @param version The version of odoo to install
 # @param wkhtmltopdf How to manage wkhtmltopdf
+#
 # @param install_from How odoo should be installed
+#
 # @param manage_package Manage the odoo package
 # @param package_name The name of the odoo package
 # @param package_ensure Ensure value for the odoo package
 # @param package_mark Mark value for the odoo package
+#
+# @param manage_vcsrepo Manage oddo git repository (when installing from vcsrepo)
+# @param vcsrepo_path Path to oddo git repository (when installing from vcsrepo)
+#
+# @param manage_venv Manage oddo virtual env (when installing from vcsrepo)
+# @param venv_path Path to oddo virtual env (when installing from vcsrepo)
 #
 # @param admin_passwd Password that allows database operations
 # @param csv_internal_sep Legacy (now unused)
@@ -83,13 +91,18 @@ class odoo (
   Enum['10.0', '11.0', '12.0', '13.0', '14.0', '15.0', 'system'] $version = undef,
   Optional[Enum['wkhtmltox']]                            $wkhtmltopdf = undef,
 
-  Enum['package'] $install_from = 'package',
+  Enum['package', 'vcsrepo'] $install_from = 'package',
 
-  Boolean   $manage_package = true,
-  String[1] $package_name   = 'odoo',
-
+  Boolean                        $manage_package = true,
+  String[1]                      $package_name   = 'odoo',
   String                         $package_ensure = 'present',
   Optional[Enum['hold', 'none']] $package_mark   = undef,
+
+  Boolean              $manage_vcsrepo = true,
+  Stdlib::Absolutepath $vcsrepo_path   = "/opt/odoo-${version}",
+
+  Boolean              $manage_venv = true,
+  Stdlib::Absolutepath $venv_path   = "/opt/odoo-${version}-venv",
 
   Optional[Sensitive]                      $admin_passwd           = undef,
   Optional[String]                         $csv_internal_sep       = undef,
@@ -231,15 +244,23 @@ class odoo (
     }
   }
 
+  $manage_user = $install_from != 'package'
+
   contain odoo::repo
   contain odoo::dependencies
+  contain odoo::user
   contain odoo::package
+  contain odoo::vcsrepo
+  contain odoo::venv
   contain odoo::config
   contain odoo::service
 
   Class['odoo::repo']
   -> Class['odoo::dependencies']
+  -> Class['odoo::user']
   -> Class['odoo::package']
+  -> Class['odoo::vcsrepo']
+  -> Class['odoo::venv']
   -> Class['odoo::config']
   ~> Class['odoo::service']
 }

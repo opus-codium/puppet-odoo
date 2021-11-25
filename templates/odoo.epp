@@ -1,0 +1,2 @@
+#!/bin/sh
+<%= $odoo::venv_path %>/bin/python3 <%= $odoo::vcsrepo_path %>/odoo-bin "$@"

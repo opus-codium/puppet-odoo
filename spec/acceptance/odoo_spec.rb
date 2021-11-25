@@ -15,8 +15,33 @@ def odoo_supported_versions
 end
 
 describe 'odoo class' do
+  context 'when installing odoo from git' do
+    it 'works idempotently with no errors' do
+      pp = <<~MANIFEST
+        include python
+
+        class { 'odoo':
+          version      => '14.0',
+          install_from => 'vcsrepo',
+        }
+      MANIFEST
+
+      apply_manifest(pp, catch_failures: true)
+      apply_manifest(pp, catch_changes: true)
+    end
+
+    describe service('odoo') do
+      it { is_expected.to be_enabled }
+      it { is_expected.to be_running }
+    end
+
+    describe port(8069) do
+      it { is_expected.to be_listening }
+    end
+  end
+
   odoo_supported_versions.each do |version|
-    context "when using odoo version=#{version.inspect}" do
+    context "when using odoo version=#{version.inspect} from packages" do
       let(:version) { version }
 
       if version == 'system'
