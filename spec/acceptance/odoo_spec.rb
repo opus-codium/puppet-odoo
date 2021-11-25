@@ -18,12 +18,14 @@ describe 'odoo class' do
   context 'when installing odoo from git' do
     it 'works idempotently with no errors' do
       pp = <<~MANIFEST
-        class { 'python':
-          version => '3',
-          pip     => 'present',
+        package { ['git', 'python3-setuptools', 'python3-pip']:
+          ensure => installed
         }
-
-        class { 'odoo':
+        -> class { 'python':
+          version => '3',
+          dev     => 'present',
+        }
+        -> class { 'odoo':
           version      => '14.0',
           install_from => 'vcsrepo',
         }
