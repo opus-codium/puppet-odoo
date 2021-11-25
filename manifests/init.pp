@@ -2,6 +2,7 @@
 #
 # @param version The version of odoo to install
 # @param wkhtmltopdf How to manage wkhtmltopdf
+# @param install_from How odoo should be installed
 # @param manage_package Manage the odoo package
 # @param package_name The name of the odoo package
 # @param package_ensure Ensure value for the odoo package
@@ -81,6 +82,8 @@
 class odoo (
   Enum['10.0', '11.0', '12.0', '13.0', '14.0', '15.0', 'system'] $version = undef,
   Optional[Enum['wkhtmltox']]                            $wkhtmltopdf = undef,
+
+  Enum['package'] $install_from = 'package',
 
   Boolean   $manage_package = true,
   String[1] $package_name   = 'odoo',
