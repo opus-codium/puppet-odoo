@@ -18,7 +18,10 @@ describe 'odoo class' do
   context 'when installing odoo from git' do
     it 'works idempotently with no errors' do
       pp = <<~MANIFEST
-        include python
+        class { 'python':
+          version => '3',
+          dev     => 'present',
+        }
 
         class { 'odoo':
           version      => '14.0',
