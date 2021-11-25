@@ -4,6 +4,27 @@
 class odoo::config {
   assert_private()
 
+  file { '/etc/odoo':
+    ensure => directory,
+    owner  => 'root',
+    group  => 'root',
+    mode   => '0755',
+  }
+
+  file { '/etc/odoo/odoo.conf':
+    ensure => file,
+    owner  => 'root',
+    group  => 'odoo',
+    mode   => '0640',
+  }
+
+  file { '/var/log/odoo':
+    ensure => directory,
+    owner  => 'odoo',
+    group  => 'odoo',
+    mode   => '0750',
+  }
+
   $raw_params = [
     'admin_passwd',
     'csv_internal_sep',
