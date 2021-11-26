@@ -11,6 +11,7 @@ class odoo::venv {
     python::requirements { "${odoo::vcsrepo_path}/requirements.txt":
       virtualenv          => $odoo::venv_path,
       manage_requirements => false,
+      subscribe           => Vcsrepo[$odoo::vcsrepo_path],
     }
   }
 }
