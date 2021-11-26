@@ -207,7 +207,7 @@ class odoo (
   Optional[Integer]                        $limit_time_real      = undef,
   Optional[Integer]                        $limit_time_real_cron = undef,
 ) {
-  $odoo_supported_versions = {
+  $package_supported_versions = {
     'Debian' => {
       '9'  => ['11.0', '12.0', '13.0', '14.0', '15.0'],
       '10' => ['11.0', '12.0', '13.0', '14.0', '15.0'],
@@ -220,8 +220,8 @@ class odoo (
     },
   }
 
-  if $install_from == 'package' and ! $odoo_supported_versions.dig($facts.get('os.name'), $facts.get('os.release.major')).member($version) {
-    fail("Odoo ${version} cannot be installed on ${facts.get('os.name')} ${facts.get('os.release.major')}")
+  if $install_from == 'package' and ! $package_supported_versions.dig($facts.get('os.name'), $facts.get('os.release.major')).member($version) {
+    fail("Odoo ${version} cannot be installed from package on ${facts.get('os.name')} ${facts.get('os.release.major')}")
   }
 
   if $odoo::wkhtmltopdf == 'wkhtmltox' {

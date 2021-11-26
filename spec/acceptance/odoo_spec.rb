@@ -1,6 +1,6 @@
 require 'spec_helper_acceptance'
 
-def odoo_supported_versions
+def package_supported_versions
   {
     'Debian' => {
       '9'  => ['11.0', '12.0', '13.0', '14.0', '15.0'],
@@ -47,7 +47,7 @@ describe 'odoo class' do
     end
   end
 
-  odoo_supported_versions.each do |version|
+  package_supported_versions.each do |version|
     context "when using odoo version=#{version.inspect} from packages" do
       let(:version) { version }
 
