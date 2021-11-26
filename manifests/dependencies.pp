@@ -78,7 +78,14 @@ class odoo::dependencies {
       }
     }
     'vcsrepo': {
-      ensure_packages(['libldap2-dev', 'libsasl2-dev', 'libpq-dev'], ensure => installed)
+      $build_dependencies = [
+        'libldap2-dev',
+        'libpq-dev',
+        'libsasl2-dev',
+        'libxslt1-dev',
+      ]
+
+      ensure_packages($build_dependencies, ensure => installed)
     }
     default: {
       fail("I don't know how to manage dependenciens when installing from ${odoo::install_from}")
