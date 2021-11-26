@@ -17,6 +17,7 @@ class odoo::vcsrepo {
       source   => 'https://github.com/odoo/odoo',
       revision => $odoo::version,
       depth    => $odoo::vcsrepo_depth,
+      notify   => Python::Requirements["${odoo::vcsrepo_path}/requirements.txt"],
     }
   }
 }
