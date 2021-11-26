@@ -14,7 +14,6 @@ class odoo::vcsrepo {
     vcsrepo { $odoo::vcsrepo_path:
       ensure   => $vcsrepo_ensure,
       provider => 'git',
-      owner    => 'odoo',
       source   => 'https://github.com/odoo/odoo',
       revision => $odoo::version,
       depth    => $odoo::vcsrepo_depth,
