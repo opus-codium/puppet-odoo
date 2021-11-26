@@ -14,8 +14,21 @@ def package_supported_versions
   }[fact('os.name')][fact('os.release.major')]
 end
 
+def vcsrepo_supported_versions
+  {
+    'Debian' => {
+      '10' => ['14.0', '15.0'],
+      '11' => ['14.0', '15.0'],
+    },
+    'Ubuntu' => {
+      '18.04' => [],
+      '20.04' => ['14.0', '15.0'],
+    },
+  }[fact('os.name')][fact('os.release.major')]
+end
+
 describe 'odoo class' do
-  ['11.0', '12.0', '13.0', '14.0', '15.0'].each do |version|
+  vcsrepo_supported_versions.each do |version|
     context "when installing odoo #{version} from git" do
       it 'works idempotently with no errors' do
         pp = <<~MANIFEST

@@ -224,6 +224,21 @@ class odoo (
     fail("Odoo ${version} cannot be installed from package on ${facts.get('os.name')} ${facts.get('os.release.major')}")
   }
 
+  $vcsrepo_supported_versions = {
+    'Debian' => {
+      '10' => ['14.0', '15.0'],
+      '11' => ['14.0', '15.0'],
+    },
+    'Ubuntu' => {
+      '18.04' => [],
+      '20.04' => ['14.0', '15.0'],
+    },
+  }
+
+  if $install_from == 'vcsrepo' and ! $vcsrepo_supported_versions.dig($facts.get('os.name'), $facts.get('os.release.major')).member($version) {
+    fail("Odoo ${version} cannot be installed from vcsrepo on ${facts.get('os.name')} ${facts.get('os.release.major')}")
+  }
+
   if $odoo::wkhtmltopdf == 'wkhtmltox' {
     contain odoo::wkhtmltox
   }
