@@ -15,33 +15,35 @@ def odoo_supported_versions
 end
 
 describe 'odoo class' do
-  context 'when installing odoo from git' do
-    it 'works idempotently with no errors' do
-      pp = <<~MANIFEST
-        package { ['git', 'postgresql']:
-          ensure => installed
-        }
-        -> class { 'python':
-          version => '3',
-          dev     => 'present',
-        }
-        -> class { 'odoo':
-          version      => '14.0',
-          install_from => 'vcsrepo',
-        }
-      MANIFEST
+  ['11.0', '12.0', '13.0', '14.0', '15.0'].each do |version|
+    context "when installing odoo #{version} from git" do
+      it 'works idempotently with no errors' do
+        pp = <<~MANIFEST
+          package { ['git', 'postgresql', 'python3-setuptools']:
+            ensure => installed
+          }
+          -> class { 'python':
+            version => '3',
+            dev     => 'present',
+          }
+          -> class { 'odoo':
+            version      => '#{version}',
+            install_from => 'vcsrepo',
+          }
+        MANIFEST
 
-      apply_manifest(pp, catch_failures: true)
-      apply_manifest(pp, catch_changes: true)
-    end
+        apply_manifest(pp, catch_failures: true)
+        apply_manifest(pp, catch_changes: true)
+      end
 
-    describe service('odoo') do
-      it { is_expected.to be_enabled }
-      it { is_expected.to be_running }
-    end
+      describe service('odoo') do
+        it { is_expected.to be_enabled }
+        it { is_expected.to be_running }
+      end
 
-    describe port(8069) do
-      it { is_expected.to be_listening }
+      describe port(8069) do
+        it { is_expected.to be_listening }
+      end
     end
   end
 
