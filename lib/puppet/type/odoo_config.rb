@@ -30,7 +30,7 @@ Puppet::Type.newtype(:odoo_config) do
       end
     end
 
-    def is_to_s(value) # rubocop:disable Naming/PredicateName
+    def is_to_s(value) # rubocop:disable Style/PredicateName
       should_to_s(value)
     end
   end
