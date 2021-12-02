@@ -1,6 +1,7 @@
 require 'json'
 require 'tempfile'
 
+# Try to change user for the current process
 def try_become_user(user)
   u = Etc.getpwnam(user)
   Process.gid = Process.egid = u.gid
@@ -10,6 +11,7 @@ rescue ArgumentError
   nil # Make older rubocop happy
 end
 
+# Spawn an odoo process to gather the fact value
 def build_odoo_fact
   IO.popen(['odoo', 'shell', '--config=/etc/odoo/odoo.conf', '--no-http', '--workers=0'], 'r+') do |io|
     io.puts(<<~PYTHON)
