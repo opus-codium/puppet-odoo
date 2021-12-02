@@ -1,6 +1,6 @@
 {
   "name": "opuscodium-odoo",
-  "version": "2.1.0",
+  "version": "2.1.1-rc0",
   "author": "Opus Codium",
   "summary": "Installs, configures, and manages the Odoo ERP and CRM",
   "license": "Apache-2.0",
