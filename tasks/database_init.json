@@ -1,0 +1,15 @@
+{
+  "description": "Initialize an odoo database",
+  "input_method": "environment",
+  "parameters": {
+    "name": {
+      "description": "Odoo database name",
+      "type": "String[1]"
+    },
+    "unaccent": {
+      "description": "Use the unaccent function provided by the database",
+      "type": "Boolean",
+      "default": true
+    }
+  }
+}
