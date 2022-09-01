@@ -1,0 +1,10 @@
+{
+  "description": "Update an odoo database",
+  "input_method": "environment",
+  "parameters": {
+    "database": {
+      "description": "Odoo database name",
+      "type": "String[1]"
+    }
+  }
+}
