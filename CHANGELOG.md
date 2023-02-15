@@ -5,9 +5,22 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [2.1.0](https://github.com/opus-codium/puppet-odoo/tree/2.1.0) (2021-12-02)
+## [2.2.0](https://github.com/opus-codium/puppet-odoo/tree/2.2.0) (2023-02-15)
 
-[Full Changelog](https://github.com/opus-codium/puppet-odoo/compare/2.0.1...2.1.0)
+[Full Changelog](https://github.com/opus-codium/puppet-odoo/compare/v2.1.0...2.2.0)
+
+**Implemented enhancements:**
+
+- Allow latest version of apt [\#55](https://github.com/opus-codium/puppet-odoo/pull/55) ([smortex](https://github.com/smortex))
+- Add Bolt tasks to initialize / update odoo databases [\#54](https://github.com/opus-codium/puppet-odoo/pull/54) ([smortex](https://github.com/smortex))
+
+**Merged pull requests:**
+
+- Fix legacy fact [\#56](https://github.com/opus-codium/puppet-odoo/pull/56) ([smortex](https://github.com/smortex))
+
+## [v2.1.0](https://github.com/opus-codium/puppet-odoo/tree/v2.1.0) (2021-12-02)
+
+[Full Changelog](https://github.com/opus-codium/puppet-odoo/compare/2.0.1...v2.1.0)
 
 **Implemented enhancements:**
 

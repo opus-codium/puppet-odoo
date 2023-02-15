@@ -29,8 +29,10 @@
 * [`database_backup`](#database_backup): Backup an odoo database
 * [`database_delete`](#database_delete): Delete an odoo database
 * [`database_duplicate`](#database_duplicate): Duplicate an odoo database
+* [`database_init`](#database_init): Initialize an odoo database
 * [`database_rename`](#database_rename): Rename an odoo database
 * [`database_restore`](#database_restore): Restore an odoo database
+* [`database_update`](#database_update): Update an odoo database
 * [`databases_list`](#databases_list): List odoo databases
 * [`list_users`](#list_users): List users of an odoo database
 
@@ -44,98 +46,98 @@ Configure Odoo
 
 The following parameters are available in the `odoo` class:
 
-* [`version`](#version)
-* [`wkhtmltopdf`](#wkhtmltopdf)
-* [`manage_package`](#manage_package)
-* [`package_name`](#package_name)
-* [`package_ensure`](#package_ensure)
-* [`package_mark`](#package_mark)
-* [`admin_passwd`](#admin_passwd)
-* [`csv_internal_sep`](#csv_internal_sep)
-* [`reportgz`](#reportgz)
-* [`without_demo`](#without_demo)
-* [`import_partial`](#import_partial)
-* [`pidfile`](#pidfile)
-* [`addons_path`](#addons_path)
-* [`upgrades_paths`](#upgrades_paths)
-* [`server_wide_modules`](#server_wide_modules)
-* [`data_dir`](#data_dir)
-* [`http_interface`](#http_interface)
-* [`http_port`](#http_port)
-* [`longpolling_port`](#longpolling_port)
-* [`http_enable`](#http_enable)
-* [`proxy_mode`](#proxy_mode)
-* [`dbfilter`](#dbfilter)
-* [`test_enable`](#test_enable)
-* [`test_file`](#test_file)
-* [`test_tags`](#test_tags)
-* [`screencasts`](#screencasts)
-* [`screenshots`](#screenshots)
-* [`logfile`](#logfile)
-* [`syslog`](#syslog)
-* [`log_handler`](#log_handler)
-* [`log_db`](#log_db)
-* [`log_db_level`](#log_db_level)
-* [`log_level`](#log_level)
-* [`email_from`](#email_from)
-* [`smtp_server`](#smtp_server)
-* [`smtp_port`](#smtp_port)
-* [`smtp_ssl`](#smtp_ssl)
-* [`smtp_user`](#smtp_user)
-* [`smtp_password`](#smtp_password)
-* [`db_name`](#db_name)
-* [`db_user`](#db_user)
-* [`db_password`](#db_password)
-* [`pg_path`](#pg_path)
-* [`db_host`](#db_host)
-* [`db_port`](#db_port)
-* [`db_sslmode`](#db_sslmode)
-* [`db_maxconn`](#db_maxconn)
-* [`db_template`](#db_template)
-* [`language`](#language)
-* [`translate_out`](#translate_out)
-* [`translate_in`](#translate_in)
-* [`overwrite_existing_translations`](#overwrite_existing_translations)
-* [`translate_modules`](#translate_modules)
-* [`list_db`](#list_db)
-* [`osv_memory_count_limit`](#osv_memory_count_limit)
-* [`osv_memory_age_limit`](#osv_memory_age_limit)
-* [`max_cron_threads`](#max_cron_threads)
-* [`unaccent`](#unaccent)
-* [`geoip_database`](#geoip_database)
-* [`workers`](#workers)
-* [`limit_memory_soft`](#limit_memory_soft)
-* [`limit_memory_hard`](#limit_memory_hard)
-* [`limit_time_cpu`](#limit_time_cpu)
-* [`limit_time_real`](#limit_time_real)
-* [`limit_time_real_cron`](#limit_time_real_cron)
-* [`limit_request`](#limit_request)
+* [`version`](#-odoo--version)
+* [`wkhtmltopdf`](#-odoo--wkhtmltopdf)
+* [`manage_package`](#-odoo--manage_package)
+* [`package_name`](#-odoo--package_name)
+* [`package_ensure`](#-odoo--package_ensure)
+* [`package_mark`](#-odoo--package_mark)
+* [`admin_passwd`](#-odoo--admin_passwd)
+* [`csv_internal_sep`](#-odoo--csv_internal_sep)
+* [`reportgz`](#-odoo--reportgz)
+* [`without_demo`](#-odoo--without_demo)
+* [`import_partial`](#-odoo--import_partial)
+* [`pidfile`](#-odoo--pidfile)
+* [`addons_path`](#-odoo--addons_path)
+* [`upgrades_paths`](#-odoo--upgrades_paths)
+* [`server_wide_modules`](#-odoo--server_wide_modules)
+* [`data_dir`](#-odoo--data_dir)
+* [`http_interface`](#-odoo--http_interface)
+* [`http_port`](#-odoo--http_port)
+* [`longpolling_port`](#-odoo--longpolling_port)
+* [`http_enable`](#-odoo--http_enable)
+* [`proxy_mode`](#-odoo--proxy_mode)
+* [`dbfilter`](#-odoo--dbfilter)
+* [`test_enable`](#-odoo--test_enable)
+* [`test_file`](#-odoo--test_file)
+* [`test_tags`](#-odoo--test_tags)
+* [`screencasts`](#-odoo--screencasts)
+* [`screenshots`](#-odoo--screenshots)
+* [`logfile`](#-odoo--logfile)
+* [`syslog`](#-odoo--syslog)
+* [`log_handler`](#-odoo--log_handler)
+* [`log_db`](#-odoo--log_db)
+* [`log_db_level`](#-odoo--log_db_level)
+* [`log_level`](#-odoo--log_level)
+* [`email_from`](#-odoo--email_from)
+* [`smtp_server`](#-odoo--smtp_server)
+* [`smtp_port`](#-odoo--smtp_port)
+* [`smtp_ssl`](#-odoo--smtp_ssl)
+* [`smtp_user`](#-odoo--smtp_user)
+* [`smtp_password`](#-odoo--smtp_password)
+* [`db_name`](#-odoo--db_name)
+* [`db_user`](#-odoo--db_user)
+* [`db_password`](#-odoo--db_password)
+* [`pg_path`](#-odoo--pg_path)
+* [`db_host`](#-odoo--db_host)
+* [`db_port`](#-odoo--db_port)
+* [`db_sslmode`](#-odoo--db_sslmode)
+* [`db_maxconn`](#-odoo--db_maxconn)
+* [`db_template`](#-odoo--db_template)
+* [`language`](#-odoo--language)
+* [`translate_out`](#-odoo--translate_out)
+* [`translate_in`](#-odoo--translate_in)
+* [`overwrite_existing_translations`](#-odoo--overwrite_existing_translations)
+* [`translate_modules`](#-odoo--translate_modules)
+* [`list_db`](#-odoo--list_db)
+* [`osv_memory_count_limit`](#-odoo--osv_memory_count_limit)
+* [`osv_memory_age_limit`](#-odoo--osv_memory_age_limit)
+* [`max_cron_threads`](#-odoo--max_cron_threads)
+* [`unaccent`](#-odoo--unaccent)
+* [`geoip_database`](#-odoo--geoip_database)
+* [`workers`](#-odoo--workers)
+* [`limit_memory_soft`](#-odoo--limit_memory_soft)
+* [`limit_memory_hard`](#-odoo--limit_memory_hard)
+* [`limit_time_cpu`](#-odoo--limit_time_cpu)
+* [`limit_time_real`](#-odoo--limit_time_real)
+* [`limit_time_real_cron`](#-odoo--limit_time_real_cron)
+* [`limit_request`](#-odoo--limit_request)
 
-##### <a name="version"></a>`version`
+##### <a name="-odoo--version"></a>`version`
 
 Data type: `Enum['10.0', '11.0', '12.0', '13.0', '14.0', '15.0', 'system']`
 
 The version of odoo to install
 
-Default value: ``undef``
+Default value: `undef`
 
-##### <a name="wkhtmltopdf"></a>`wkhtmltopdf`
+##### <a name="-odoo--wkhtmltopdf"></a>`wkhtmltopdf`
 
 Data type: `Optional[Enum['wkhtmltox']]`
 
 How to manage wkhtmltopdf
 
-Default value: ``undef``
+Default value: `undef`
 
-##### <a name="manage_package"></a>`manage_package`
+##### <a name="-odoo--manage_package"></a>`manage_package`
 
 Data type: `Boolean`
 
 Manage the odoo package
 
-Default value: ``true``
+Default value: `true`
 
-##### <a name="package_name"></a>`package_name`
+##### <a name="-odoo--package_name"></a>`package_name`
 
 Data type: `String[1]`
 
@@ -143,7 +145,7 @@ The name of the odoo package
 
 Default value: `'odoo'`
 
-##### <a name="package_ensure"></a>`package_ensure`
+##### <a name="-odoo--package_ensure"></a>`package_ensure`
 
 Data type: `String`
 
@@ -151,225 +153,228 @@ Ensure value for the odoo package
 
 Default value: `'present'`
 
-##### <a name="package_mark"></a>`package_mark`
+##### <a name="-odoo--package_mark"></a>`package_mark`
 
 Data type: `Optional[Enum['hold', 'none']]`
 
 Mark value for the odoo package
 
-Default value: ``undef``
+Default value: `undef`
 
-##### <a name="admin_passwd"></a>`admin_passwd`
+##### <a name="-odoo--admin_passwd"></a>`admin_passwd`
 
 Data type: `Optional[Sensitive]`
 
 Password that allows database operations
 
-Default value: ``undef``
+Default value: `undef`
 
-##### <a name="csv_internal_sep"></a>`csv_internal_sep`
-
-Data type: `Optional[String]`
-
-Legacy (now unused)
-
-Default value: ``undef``
-
-##### <a name="reportgz"></a>`reportgz`
+##### <a name="-odoo--csv_internal_sep"></a>`csv_internal_sep`
 
 Data type: `Optional[String]`
 
 Legacy (now unused)
 
-Default value: ``undef``
+Default value: `undef`
 
-##### <a name="without_demo"></a>`without_demo`
+##### <a name="-odoo--reportgz"></a>`reportgz`
+
+Data type: `Optional[String]`
+
+Legacy (now unused)
+
+Default value: `undef`
+
+##### <a name="-odoo--without_demo"></a>`without_demo`
 
 Data type: `Optional[Variant[Array[String],Boolean]]`
 
 Disable loading demo data for modules to be installed (comma-separated, use \"all\" for all modules).
 
-Default value: ``undef``
+Default value: `undef`
 
-##### <a name="import_partial"></a>`import_partial`
+##### <a name="-odoo--import_partial"></a>`import_partial`
 
 Data type: `Optional[String]`
 
 Use this for big data importation, if it crashes you will be able to continue at the current state. Provide a filename to store intermediate importation states.
 
-Default value: ``undef``
+Default value: `undef`
 
-##### <a name="pidfile"></a>`pidfile`
+##### <a name="-odoo--pidfile"></a>`pidfile`
 
 Data type: `Optional[Stdlib::Absolutepath]`
 
 File where the server pid will be stored
 
-Default value: ``undef``
+Default value: `undef`
 
-##### <a name="addons_path"></a>`addons_path`
+##### <a name="-odoo--addons_path"></a>`addons_path`
 
 Data type: `Optional[Array[String]]`
 
 Additional addons paths
 
-Default value: ``undef``
+Default value: `undef`
 
-##### <a name="upgrades_paths"></a>`upgrades_paths`
+##### <a name="-odoo--upgrades_paths"></a>`upgrades_paths`
 
 Data type: `Optional[Array[String]]`
 
 Additional upgrades path
 
-Default value: ``undef``
+Default value: `undef`
 
-##### <a name="server_wide_modules"></a>`server_wide_modules`
+##### <a name="-odoo--server_wide_modules"></a>`server_wide_modules`
 
 Data type: `Optional[Array[String]]`
 
 List of server-wide modules
 
-Default value: ``undef``
+Default value: `undef`
 
-##### <a name="data_dir"></a>`data_dir`
+##### <a name="-odoo--data_dir"></a>`data_dir`
 
 Data type: `Optional[String]`
 
 Directory where to store Odoo data
 
-Default value: ``undef``
+Default value: `undef`
 
-##### <a name="http_interface"></a>`http_interface`
+##### <a name="-odoo--http_interface"></a>`http_interface`
 
 Data type: `Optional[String]`
 
 Listen interface address for HTTP services
 
-Default value: ``undef``
+Default value: `undef`
 
-##### <a name="http_port"></a>`http_port`
+##### <a name="-odoo--http_port"></a>`http_port`
 
 Data type: `Optional[Integer]`
 
 Listen port for the main HTTP service
 
-Default value: ``undef``
+Default value: `undef`
 
-##### <a name="longpolling_port"></a>`longpolling_port`
+##### <a name="-odoo--longpolling_port"></a>`longpolling_port`
 
 Data type: `Optional[Integer]`
 
 Listen port for the longpolling HTTP service
 
-Default value: ``undef``
+Default value: `undef`
 
-##### <a name="http_enable"></a>`http_enable`
+##### <a name="-odoo--http_enable"></a>`http_enable`
 
 Data type: `Optional[Boolean]`
 
 Disable the HTTP and Longpolling services entirely
 
-Default value: ``undef``
+Default value: `undef`
 
-##### <a name="proxy_mode"></a>`proxy_mode`
+##### <a name="-odoo--proxy_mode"></a>`proxy_mode`
 
 Data type: `Optional[Boolean]`
 
 Activate reverse proxy WSGI wrappers
 
-Default value: ``undef``
+Default value: `undef`
 
-##### <a name="dbfilter"></a>`dbfilter`
+##### <a name="-odoo--dbfilter"></a>`dbfilter`
 
 Data type: `Optional[String]`
 
 Regular expressions for filtering available databases for Web UI
 
-Default value: ``undef``
+Default value: `undef`
 
-##### <a name="test_enable"></a>`test_enable`
+##### <a name="-odoo--test_enable"></a>`test_enable`
 
 Data type: `Optional[Boolean]`
 
 Enable unit tests
 
-Default value: ``undef``
+Default value: `undef`
 
-##### <a name="test_file"></a>`test_file`
+##### <a name="-odoo--test_file"></a>`test_file`
 
 Data type: `Optional[String]`
 
 Launch a python test file
 
-Default value: ``undef``
+Default value: `undef`
 
-##### <a name="test_tags"></a>`test_tags`
+##### <a name="-odoo--test_tags"></a>`test_tags`
 
 Data type: `Optional[Array[String]]`
 
 List of spec to filter which tests to execute
 
-Default value: ``undef``
+Default value: `undef`
 
-##### <a name="screencasts"></a>`screencasts`
+##### <a name="-odoo--screencasts"></a>`screencasts`
 
 Data type: `Optional[String]`
 
 Screencasts will go in $screencasts/<db_name>/screencasts
 
-Default value: ``undef``
+Default value: `undef`
 
-##### <a name="screenshots"></a>`screenshots`
+##### <a name="-odoo--screenshots"></a>`screenshots`
 
 Data type: `Optional[String]`
 
 Screenshots will go in $screenshots/<db_name>/screenshots
 
-Default value: ``undef``
+Default value: `undef`
 
-##### <a name="logfile"></a>`logfile`
+##### <a name="-odoo--logfile"></a>`logfile`
 
 Data type: `Optional[Stdlib::Absolutepath]`
 
 File where the server log will be stored
 
-Default value: ``undef``
+Default value: `undef`
 
-##### <a name="syslog"></a>`syslog`
+##### <a name="-odoo--syslog"></a>`syslog`
 
 Data type: `Optional[Boolean]`
 
 Send the log to the syslog server
 
-Default value: ``undef``
+Default value: `undef`
 
-##### <a name="log_handler"></a>`log_handler`
+##### <a name="-odoo--log_handler"></a>`log_handler`
 
 Data type: `Optional[String]`
 
 Setup a handler of PREFIX:LEVEL
 
-Default value: ``undef``
+Default value: `undef`
 
-##### <a name="log_db"></a>`log_db`
+##### <a name="-odoo--log_db"></a>`log_db`
 
 Data type: `Optional[String]`
 
 Logging database
 
-Default value: ``undef``
+Default value: `undef`
 
-##### <a name="log_db_level"></a>`log_db_level`
+##### <a name="-odoo--log_db_level"></a>`log_db_level`
 
 Data type: `Optional[String]`
 
 Logging database level
 
-Default value: ``undef``
+Default value: `undef`
 
-##### <a name="log_level"></a>`log_level`
+##### <a name="-odoo--log_level"></a>`log_level`
 
-Data type: `Optional[Enum[
+Data type:
+
+```puppet
+Optional[Enum[
       'info',
       'debug_rpc',
       'warn',
@@ -380,69 +385,70 @@ Data type: `Optional[Enum[
       'debug',
       'debug_rpc_answer',
       'notset',
-  ]]`
+  ]]
+```
 
 Level of the logging
 
-Default value: ``undef``
+Default value: `undef`
 
-##### <a name="email_from"></a>`email_from`
+##### <a name="-odoo--email_from"></a>`email_from`
 
 Data type: `Optional[String]`
 
 SMTP email address for sending email
 
-Default value: ``undef``
+Default value: `undef`
 
-##### <a name="smtp_server"></a>`smtp_server`
+##### <a name="-odoo--smtp_server"></a>`smtp_server`
 
 Data type: `Optional[String]`
 
 SMTP server for sending email
 
-Default value: ``undef``
+Default value: `undef`
 
-##### <a name="smtp_port"></a>`smtp_port`
+##### <a name="-odoo--smtp_port"></a>`smtp_port`
 
 Data type: `Optional[Integer]`
 
 SMTP port
 
-Default value: ``undef``
+Default value: `undef`
 
-##### <a name="smtp_ssl"></a>`smtp_ssl`
+##### <a name="-odoo--smtp_ssl"></a>`smtp_ssl`
 
 Data type: `Optional[Boolean]`
 
 Encrypt SMTP connections with StARTTLS
 
-Default value: ``undef``
+Default value: `undef`
 
-##### <a name="smtp_user"></a>`smtp_user`
+##### <a name="-odoo--smtp_user"></a>`smtp_user`
 
 Data type: `Optional[String]`
 
 SMTP username for sending email
 
-Default value: ``undef``
+Default value: `undef`
 
-##### <a name="smtp_password"></a>`smtp_password`
+##### <a name="-odoo--smtp_password"></a>`smtp_password`
 
 Data type: `Optional[Sensitive]`
 
 SMTP password for sending email
 
-Default value: ``undef``
+Default value: `undef`
 
-##### <a name="db_name"></a>`db_name`
+##### <a name="-odoo--db_name"></a>`db_name`
 
 Data type: `Optional[String]`
 
 Database name
 
-Default value: ``undef``
+Default value: `undef`
 
-##### <a name="db_user"></a>`db_user`
+##### <a name="-odoo--db_user"></a>`db_user`
 
 Data type: `String[1]`
 
@@ -450,212 +456,216 @@ Database user name
 
 Default value: `'odoo'`
 
-##### <a name="db_password"></a>`db_password`
+##### <a name="-odoo--db_password"></a>`db_password`
 
 Data type: `Variant[Boolean[false],Sensitive]`
 
 Database password
 
-Default value: ``false``
+Default value: `false`
 
-##### <a name="pg_path"></a>`pg_path`
+##### <a name="-odoo--pg_path"></a>`pg_path`
 
 Data type: `Optional[String]`
 
 PostgreSQL executable path
 
-Default value: ``undef``
+Default value: `undef`
 
-##### <a name="db_host"></a>`db_host`
+##### <a name="-odoo--db_host"></a>`db_host`
 
 Data type: `Variant[Boolean[false],String]`
 
 Database host
 
-Default value: ``false``
+Default value: `false`
 
-##### <a name="db_port"></a>`db_port`
+##### <a name="-odoo--db_port"></a>`db_port`
 
 Data type: `Variant[Boolean[false],Integer]`
 
 Database port
 
-Default value: ``false``
+Default value: `false`
 
-##### <a name="db_sslmode"></a>`db_sslmode`
+##### <a name="-odoo--db_sslmode"></a>`db_sslmode`
 
-Data type: `Optional[Enum[
+Data type:
+
+```puppet
+Optional[Enum[
       'disable',
       'allow',
       'prefer',
       'require',
       'verify-ca',
       'verify-full',
-  ]]`
+  ]]
+```
 
 Database ssl connection mode
 
-Default value: ``undef``
+Default value: `undef`
 
-##### <a name="db_maxconn"></a>`db_maxconn`
+##### <a name="-odoo--db_maxconn"></a>`db_maxconn`
 
 Data type: `Optional[Integer]`
 
 Maximum number of physical connections to PostgreSQL
 
-Default value: ``undef``
+Default value: `undef`
 
-##### <a name="db_template"></a>`db_template`
+##### <a name="-odoo--db_template"></a>`db_template`
 
 Data type: `Optional[String]`
 
 Custom database template to create a new database
 
-Default value: ``undef``
+Default value: `undef`
 
-##### <a name="language"></a>`language`
+##### <a name="-odoo--language"></a>`language`
 
 Data type: `Optional[String]`
 
 Language of the translation file
 
-Default value: ``undef``
+Default value: `undef`
 
-##### <a name="translate_out"></a>`translate_out`
+##### <a name="-odoo--translate_out"></a>`translate_out`
 
 Data type: `Optional[Boolean]`
 
 Export all sentences to be translated to a CSV file, a PO file or a TGZ archive and exit
 
-Default value: ``undef``
+Default value: `undef`
 
-##### <a name="translate_in"></a>`translate_in`
+##### <a name="-odoo--translate_in"></a>`translate_in`
 
 Data type: `Optional[Boolean]`
 
 Import a CSV or a PO file with translations and exit
 
-Default value: ``undef``
+Default value: `undef`
 
-##### <a name="overwrite_existing_translations"></a>`overwrite_existing_translations`
+##### <a name="-odoo--overwrite_existing_translations"></a>`overwrite_existing_translations`
 
 Data type: `Optional[Boolean]`
 
 Overwrites existing translation terms on updating a module or importing a CSV or a PO file
 
-Default value: ``undef``
+Default value: `undef`
 
-##### <a name="translate_modules"></a>`translate_modules`
+##### <a name="-odoo--translate_modules"></a>`translate_modules`
 
 Data type: `Optional[Array[String]]`
 
 Modules to export
 
-Default value: ``undef``
+Default value: `undef`
 
-##### <a name="list_db"></a>`list_db`
+##### <a name="-odoo--list_db"></a>`list_db`
 
 Data type: `Optional[Boolean]`
 
 Disable the ability to obtain or view the list of databases
 
-Default value: ``undef``
+Default value: `undef`
 
-##### <a name="osv_memory_count_limit"></a>`osv_memory_count_limit`
+##### <a name="-odoo--osv_memory_count_limit"></a>`osv_memory_count_limit`
 
 Data type: `Optional[Integer]`
 
 Force a limit on the maximum number of records kept in the virtual osv_memory tables
 
-Default value: ``undef``
+Default value: `undef`
 
-##### <a name="osv_memory_age_limit"></a>`osv_memory_age_limit`
+##### <a name="-odoo--osv_memory_age_limit"></a>`osv_memory_age_limit`
 
 Data type: `Optional[Float]`
 
 Force a limit on the maximum age of records kept in the virtual osv_memory
 
-Default value: ``undef``
+Default value: `undef`
 
-##### <a name="max_cron_threads"></a>`max_cron_threads`
+##### <a name="-odoo--max_cron_threads"></a>`max_cron_threads`
 
 Data type: `Optional[Integer]`
 
 Maximum number of threads processing concurrently cron jobs
 
-Default value: ``undef``
+Default value: `undef`
 
-##### <a name="unaccent"></a>`unaccent`
+##### <a name="-odoo--unaccent"></a>`unaccent`
 
 Data type: `Optional[Boolean]`
 
 Use the unaccent function provided by the database when available
 
-Default value: ``undef``
+Default value: `undef`
 
-##### <a name="geoip_database"></a>`geoip_database`
+##### <a name="-odoo--geoip_database"></a>`geoip_database`
 
 Data type: `Optional[Stdlib::Absolutepath]`
 
 Absolute path to the GeoIP database file
 
-Default value: ``undef``
+Default value: `undef`
 
-##### <a name="workers"></a>`workers`
+##### <a name="-odoo--workers"></a>`workers`
 
 Data type: `Optional[Integer]`
 
 Number of workers
 
-Default value: ``undef``
+Default value: `undef`
 
-##### <a name="limit_memory_soft"></a>`limit_memory_soft`
+##### <a name="-odoo--limit_memory_soft"></a>`limit_memory_soft`
 
 Data type: `Optional[Integer]`
 
 Maximum allowed virtual memory per worker, when reached the worker be reset after the current request
 
-Default value: ``undef``
+Default value: `undef`
 
-##### <a name="limit_memory_hard"></a>`limit_memory_hard`
+##### <a name="-odoo--limit_memory_hard"></a>`limit_memory_hard`
 
 Data type: `Optional[Integer]`
 
 Maximum allowed virtual memory per worker, when reached, any memory allocation will fail
 
-Default value: ``undef``
+Default value: `undef`
 
-##### <a name="limit_time_cpu"></a>`limit_time_cpu`
+##### <a name="-odoo--limit_time_cpu"></a>`limit_time_cpu`
 
 Data type: `Optional[Integer]`
 
 Maximum allowed CPU time per request
 
-Default value: ``undef``
+Default value: `undef`
 
-##### <a name="limit_time_real"></a>`limit_time_real`
+##### <a name="-odoo--limit_time_real"></a>`limit_time_real`
 
 Data type: `Optional[Integer]`
 
 Maximum allowed Real time per request
 
-Default value: ``undef``
+Default value: `undef`
 
-##### <a name="limit_time_real_cron"></a>`limit_time_real_cron`
+##### <a name="-odoo--limit_time_real_cron"></a>`limit_time_real_cron`
 
 Data type: `Optional[Integer]`
 
 Maximum allowed Real time per cron job
 
-Default value: ``undef``
+Default value: `undef`
 
-##### <a name="limit_request"></a>`limit_request`
+##### <a name="-odoo--limit_request"></a>`limit_request`
 
 Data type: `Optional[Integer]`
 
 Maximum number of request to be processed per worker
 
-Default value: ``undef``
+Default value: `undef`
 
 ## Resource types
 
@@ -683,28 +693,28 @@ The value of the setting to define
 
 The following parameters are available in the `odoo_config` type.
 
-* [`name`](#name)
-* [`provider`](#provider)
-* [`show_diff`](#show_diff)
+* [`name`](#-odoo_config--name)
+* [`provider`](#-odoo_config--provider)
+* [`show_diff`](#-odoo_config--show_diff)
 
-##### <a name="name"></a>`name`
+##### <a name="-odoo_config--name"></a>`name`
 
 namevar
 
 setting name to manage from odoo.conf
 
-##### <a name="provider"></a>`provider`
+##### <a name="-odoo_config--provider"></a>`provider`
 
 The specific backend to use for this `odoo_config` resource. You will seldom need to specify this --- Puppet will
 usually discover the appropriate provider for your platform.
 
-##### <a name="show_diff"></a>`show_diff`
+##### <a name="-odoo_config--show_diff"></a>`show_diff`
 
-Valid values: ``true``, `md5`, ``false``
+Valid values: `true`, `md5`, `false`
 
 Whether to display differences when the setting changes.
 
-Default value: ``true``
+Default value: `true`
 
 ## Tasks
 
@@ -794,6 +804,26 @@ Data type: `String`
 
 Name of the new Odoo database
 
+### <a name="database_init"></a>`database_init`
+
+Initialize an odoo database
+
+**Supports noop?** false
+
+#### Parameters
+
+##### `name`
+
+Data type: `String[1]`
+
+Odoo database name
+
+##### `unaccent`
+
+Data type: `Boolean`
+
+Use the unaccent function provided by the database
+
 ### <a name="database_rename"></a>`database_rename`
 
 Rename an odoo database
@@ -839,6 +869,20 @@ Remote filename for the backup
 Data type: `Boolean`
 
 
+
+### <a name="database_update"></a>`database_update`
+
+Update an odoo database
+
+**Supports noop?** false
+
+#### Parameters
+
+##### `database`
+
+Data type: `String[1]`
+
+Odoo database name
 
 ### <a name="databases_list"></a>`databases_list`
 
