@@ -1,13 +1,12 @@
 # Changelog
 
 All notable changes to this project will be documented in this file.
+Each new release typically also includes the latest modulesync defaults.
+These should not affect the functionality of the module.
 
-The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
-and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+## [v2.2.0](https://github.com/opus-codium/puppet-odoo/tree/v2.2.0) (2023-02-17)
 
-## [2.2.0](https://github.com/opus-codium/puppet-odoo/tree/2.2.0) (2023-02-15)
-
-[Full Changelog](https://github.com/opus-codium/puppet-odoo/compare/v2.1.0...2.2.0)
+[Full Changelog](https://github.com/opus-codium/puppet-odoo/compare/v2.1.0...v2.2.0)
 
 **Implemented enhancements:**
 
