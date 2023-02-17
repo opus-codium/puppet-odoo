@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Puppet::Type.newtype(:odoo_config) do
   ensurable
 
@@ -30,7 +32,7 @@ Puppet::Type.newtype(:odoo_config) do
       end
     end
 
-    def is_to_s(value) # rubocop:disable Style/PredicateName
+    def is_to_s(value)
       should_to_s(value)
     end
   end
