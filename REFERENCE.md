@@ -115,7 +115,7 @@ The following parameters are available in the `odoo` class:
 
 ##### <a name="-odoo--version"></a>`version`
 
-Data type: `Enum['10.0', '11.0', '12.0', '13.0', '14.0', '15.0', 'system']`
+Data type: `Enum['10.0', '11.0', '12.0', '13.0', '14.0', '15.0', '16.0', 'system']`
 
 The version of odoo to install
 

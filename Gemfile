@@ -21,8 +21,7 @@ end
 
 group :release do
   gem 'github_changelog_generator', '>= 1.16.1',  :require => false if RUBY_VERSION >= '2.5'
-  gem 'voxpupuli-release',                        :require => false, :git => 'https://github.com/voxpupuli/voxpupuli-release.git', :branch => 'prepare-release-tasks'
-  gem 'puppet-strings', '>= 2.2',                 :require => false
+  gem 'voxpupuli-release', '~> 2.0',              :require => false
 end
 
 gem 'rake', :require => false
