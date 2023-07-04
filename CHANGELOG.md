@@ -4,6 +4,20 @@ All notable changes to this project will be documented in this file.
 Each new release typically also includes the latest modulesync defaults.
 These should not affect the functionality of the module.
 
+## [v3.0.0](https://github.com/opus-codium/puppet-odoo/tree/v3.0.0) (2023-07-04)
+
+[Full Changelog](https://github.com/opus-codium/puppet-odoo/compare/v2.2.0...v3.0.0)
+
+**Breaking changes:**
+
+- Drop Puppet 6 \(EOL\) [\#65](https://github.com/opus-codium/puppet-odoo/pull/65) ([smortex](https://github.com/smortex))
+
+**Implemented enhancements:**
+
+- Add support for Puppet 8 [\#67](https://github.com/opus-codium/puppet-odoo/pull/67) ([smortex](https://github.com/smortex))
+- Relax dependencie's version requirements [\#63](https://github.com/opus-codium/puppet-odoo/pull/63) ([smortex](https://github.com/smortex))
+- Add support for odoo 16.0 [\#60](https://github.com/opus-codium/puppet-odoo/pull/60) ([smortex](https://github.com/smortex))
+
 ## [v2.2.0](https://github.com/opus-codium/puppet-odoo/tree/v2.2.0) (2023-02-17)
 
 [Full Changelog](https://github.com/opus-codium/puppet-odoo/compare/v2.1.0...v2.2.0)
