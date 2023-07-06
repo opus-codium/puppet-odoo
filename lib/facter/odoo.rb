@@ -35,7 +35,11 @@ def build_odoo_fact
       res['databases'] = {}
 
       def module_info(addon):
-          info = odoo.modules.load_information_from_description_file(addon)
+          try:
+              info = odoo.modules.get_manifest(addon)
+          except AttributeError:
+              # Odoo 16 deprecated load_information_from_description_file and alias it to get_manifest
+              info = odoo.modules.load_information_from_description_file(addon)
           return {
             'name': info.get('name'),
             'version': info.get('version'),
