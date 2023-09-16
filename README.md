@@ -1,7 +1,7 @@
 # puppet-odoo
 
 <!-- header GFM -->
-[![Build Status](https://img.shields.io/github/workflow/status/opus-codium/puppet-odoo/Release)](https://github.com/opus-codium/puppet-odoo/releases)
+[![Build Status](https://img.shields.io/github/actions/workflow/status/opus-codium/puppet-odoo/release.yml)](https://github.com/opus-codium/puppet-odoo/releases)
 [![Puppet Forge](https://img.shields.io/puppetforge/v/opuscodium/odoo.svg)](https://forge.puppetlabs.com/opuscodium/odoo)
 [![Puppet Forge - downloads](https://img.shields.io/puppetforge/dt/opuscodium/odoo.svg)](https://forge.puppetlabs.com/opuscodium/odoo)
 [![Puppet Forge - endorsement](https://img.shields.io/puppetforge/e/opuscodium/odoo.svg)](https://forge.puppetlabs.com/opuscodium/odoo)
