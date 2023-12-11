@@ -4,7 +4,15 @@ All notable changes to this project will be documented in this file.
 Each new release typically also includes the latest modulesync defaults.
 These should not affect the functionality of the module.
 
-## [v3.0.1](https://github.com/opus-codium/puppet-odoo/tree/v3.0.1) (2023-07-06)
+## [v3.0.2](https://github.com/opus-codium/puppet-odoo/tree/v3.0.2) (2023-12-11)
+
+[Full Changelog](https://github.com/opus-codium/puppet-odoo/compare/v3.0.1...v3.0.2)
+
+**Fixed bugs:**
+
+- Fix `odoo::database_restore` [\#73](https://github.com/opus-codium/puppet-odoo/pull/73) ([smortex](https://github.com/smortex))
+
+## [v3.0.1](https://github.com/opus-codium/puppet-odoo/tree/v3.0.1) (2023-07-07)
 
 [Full Changelog](https://github.com/opus-codium/puppet-odoo/compare/v3.0.0...v3.0.1)
 
