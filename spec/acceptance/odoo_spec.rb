@@ -52,10 +52,6 @@ describe 'odoo class' do
                    },
                  }
 
-                 if $facts.get('os.name') == 'debian' {
-                   class { 'apt::backports':
-                   }
-                 }
                  if $facts.get('os.name') == 'ubuntu' {
                    apt::source { 'ubuntu-universe':
                      location => 'http://archive.ubuntu.com/ubuntu',
