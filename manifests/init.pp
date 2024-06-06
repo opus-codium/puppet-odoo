@@ -79,7 +79,7 @@
 # @param limit_time_real_cron Maximum allowed Real time per cron job
 # @param limit_request Maximum number of request to be processed per worker
 class odoo (
-  Enum['10.0', '11.0', '12.0', '13.0', '14.0', '15.0', '16.0', 'system'] $version = undef,
+  Enum['10.0', '11.0', '12.0', '13.0', '14.0', '15.0', '16.0', '17.0', 'system'] $version = undef,
   Optional[Enum['wkhtmltox']]                            $wkhtmltopdf = undef,
 
   Boolean   $manage_package = true,
@@ -194,7 +194,7 @@ class odoo (
       '9'  => ['11.0', '12.0'],
       '10' => ['11.0', '12.0', '13.0', '14.0', '15.0', '16.0'],
       '11' => ['14.0', '15.0', '16.0', 'system'],
-      '12' => ['14.0', '15.0', '16.0'],
+      '12' => ['14.0', '15.0', '16.0', '17.0'],
     },
     'Ubuntu' => {
       '16.04' => ['10.0', '11.0', '12.0'],
