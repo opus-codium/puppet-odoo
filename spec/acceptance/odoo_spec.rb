@@ -8,11 +8,13 @@ def odoo_supported_versions
       '9'  => ['11.0', '12.0'],
       '10' => ['11.0', '12.0', '13.0', '14.0', '15.0', '16.0'],
       '11' => ['14.0', '15.0', '16.0', 'system'],
+      '12' => ['14.0', '15.0', '16.0', '17.0'],
     },
     'Ubuntu' => {
       '16.04' => ['10.0', '11.0', '12.0'],
       '18.04' => ['11.0', '12.0', '13.0'],
       '20.04' => ['11.0', '12.0', '13.0', '14.0', '15.0', '16.0'],
+      '22.04' => ['14.0', '15.0', '16.0', '17.0'],
     },
   }[fact('os.name')][fact('os.release.major')]
 end
@@ -52,20 +54,16 @@ describe 'odoo class' do
                    },
                  }
 
+                 if $facts.get('os.name') == 'debian' and versioncmp($facts.get('os.release.full'), '12') >= 0 {
+                   apt::source { 'debian':
+                     location => 'http://deb.debian.org/debian',
+                   }
+                 }
+
                  if $facts.get('os.name') == 'ubuntu' {
                    apt::source { 'ubuntu-universe':
                      location => 'http://archive.ubuntu.com/ubuntu',
                      repos    => 'universe',
-                   }
-                 }
-
-                 if '#{version}' == '10.0' {
-                   package { 'python-pip':
-                     ensure => installed,
-                   }
-                 } else {
-                   package { 'python3-pip':
-                     ensure => installed,
                    }
                  }
 
