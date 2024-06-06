@@ -4,6 +4,20 @@ All notable changes to this project will be documented in this file.
 Each new release typically also includes the latest modulesync defaults.
 These should not affect the functionality of the module.
 
+## [v4.1.0](https://github.com/opus-codium/puppet-odoo/tree/v4.1.0) (2024-06-06)
+
+[Full Changelog](https://github.com/opus-codium/puppet-odoo/compare/v4.0.0...v4.1.0)
+
+**Implemented enhancements:**
+
+- Add support for Ubuntu 22.04 [\#80](https://github.com/opus-codium/puppet-odoo/pull/80) ([smortex](https://github.com/smortex))
+- Add support for odoo 17.0 [\#79](https://github.com/opus-codium/puppet-odoo/pull/79) ([smortex](https://github.com/smortex))
+- Add support for Debian 12 [\#77](https://github.com/opus-codium/puppet-odoo/pull/77) ([smortex](https://github.com/smortex))
+
+**Fixed bugs:**
+
+- Fix Debian 10 support [\#78](https://github.com/opus-codium/puppet-odoo/pull/78) ([smortex](https://github.com/smortex))
+
 ## [v4.0.0](https://github.com/opus-codium/puppet-odoo/tree/v4.0.0) (2024-04-12)
 
 [Full Changelog](https://github.com/opus-codium/puppet-odoo/compare/v3.0.2...v4.0.0)
