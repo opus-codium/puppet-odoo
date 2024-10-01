@@ -4,8 +4,7 @@
 class odoo::wkhtmltox {
   assert_private()
 
-  $wkhtmltox_version = '0.12.5'
-  $wkhtmltox_url = "https://github.com/wkhtmltopdf/wkhtmltopdf/releases/download/${wkhtmltox_version}/wkhtmltox_${wkhtmltox_version}-1.${facts.get('os.distro.codename')}_${facts.get('os.architecture')}.deb"
+  $wkhtmltox_url = "https://github.com/wkhtmltopdf/packaging/releases/download/${odoo::wkhtmltox_version}/wkhtmltox_${odoo::wkhtmltox_version}.${facts.get('os.distro.codename')}_${facts.get('os.architecture')}.deb"
 
   $wkhtmltox_dependencies = $facts.get('os.name') ? {
     'Debian' => [
@@ -24,7 +23,7 @@ class odoo::wkhtmltox {
     ],
   }
 
-  $wkhtmltox_filename = "/var/cache/wkhtmltox_${wkhtmltox_version}.${facts.get('os.distro.codename')}_${facts.get('os.architecture')}.deb"
+  $wkhtmltox_filename = "/var/cache/wkhtmltox_${odoo::wkhtmltox_version}.${facts.get('os.distro.codename')}_${facts.get('os.architecture')}.deb"
 
   archive { $wkhtmltox_filename:
     ensure => present,
@@ -33,7 +32,7 @@ class odoo::wkhtmltox {
     source => $wkhtmltox_url,
   }
 
-  stdlib::ensure_packages($wkhtmltox_dependencies, { ensure => installed })
+  stdlib::ensure_packages($wkhtmltox_dependencies, { ensure => installed, require => Class['odoo::dependencies'] })
 
   package { 'wkhtmltox':
     ensure   => installed,

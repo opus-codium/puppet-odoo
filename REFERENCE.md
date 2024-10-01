@@ -47,6 +47,7 @@ Configure Odoo
 The following parameters are available in the `odoo` class:
 
 * [`version`](#-odoo--version)
+* [`wkhtmltox_version`](#-odoo--wkhtmltox_version)
 * [`wkhtmltopdf`](#-odoo--wkhtmltopdf)
 * [`manage_package`](#-odoo--manage_package)
 * [`package_name`](#-odoo--package_name)
@@ -118,6 +119,14 @@ The following parameters are available in the `odoo` class:
 Data type: `Enum['10.0', '11.0', '12.0', '13.0', '14.0', '15.0', '16.0', '17.0', 'system']`
 
 The version of odoo to install
+
+Default value: `undef`
+
+##### <a name="-odoo--wkhtmltox_version"></a>`wkhtmltox_version`
+
+Data type: `String[1]`
+
+Version of wkhtmltox to install when wkhtmltopdf is set to wkhtmltox
 
 Default value: `undef`
 

@@ -1,6 +1,7 @@
 # @summary Configure Odoo
 #
 # @param version The version of odoo to install
+# @param wkhtmltox_version Version of wkhtmltox to install when wkhtmltopdf is set to wkhtmltox
 # @param wkhtmltopdf How to manage wkhtmltopdf
 # @param manage_package Manage the odoo package
 # @param package_name The name of the odoo package
@@ -80,7 +81,9 @@
 # @param limit_request Maximum number of request to be processed per worker
 class odoo (
   Enum['10.0', '11.0', '12.0', '13.0', '14.0', '15.0', '16.0', '17.0', 'system'] $version = undef,
-  Optional[Enum['wkhtmltox']]                            $wkhtmltopdf = undef,
+
+  String[1]                   $wkhtmltox_version = undef,
+  Optional[Enum['wkhtmltox']] $wkhtmltopdf = undef,
 
   Boolean   $manage_package = true,
   String[1] $package_name   = 'odoo',
