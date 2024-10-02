@@ -42,7 +42,8 @@ describe 'odoo class' do
                  }
 
                  class { 'odoo':
-                   version => '#{version}'
+                   version     => '#{version}',
+                   wkhtmltopdf => 'wkhtmltox',
                  }
                MANIFEST
              else
@@ -68,7 +69,8 @@ describe 'odoo class' do
                  }
 
                  class { 'odoo':
-                   version => '#{version}'
+                   version     => '#{version}',
+                   wkhtmltopdf => 'wkhtmltox',
                  }
 
                  Class['apt::update']
