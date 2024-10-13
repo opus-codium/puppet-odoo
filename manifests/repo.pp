@@ -8,11 +8,11 @@ class odoo::repo {
     case $facts.get('os.family') {
       'debian': {
         apt::source { 'odoo':
-          location => "http://nightly.odoo.com/${odoo::version}/nightly/deb/",
+          location => "https://nightly.odoo.com/${odoo::version}/nightly/deb/",
           release  => '',
           repos    => './',
           key      => {
-            name   => 'odoo-archive-keyring.gpg',
+            name   => 'odoo.key',
             source => 'https://nightly.odoo.com/odoo.key',
           },
           include  => {
