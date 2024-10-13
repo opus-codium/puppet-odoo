@@ -12,7 +12,8 @@ class odoo::repo {
           release  => '',
           repos    => './',
           key      => {
-            id => '5D134C924CB06330DCEFE2A1DEF2A2198183CBB5',
+            name   => 'odoo-archive-keyring.gpg',
+            source => 'https://nightly.odoo.com/odoo.key',
           },
           include  => {
             src => false,
