@@ -7,6 +7,10 @@ class odoo::dependencies {
   unless $odoo::version == 'system' {
     stdlib::ensure_packages($odoo::pip_package)
 
+    package { 'python3-pdfminer':
+      ensure => installed,
+    }
+
     if versioncmp($odoo::version, '13.0') < 0 {
       # These dependencies are only listed on the Odoo 11 and Odoo 12 setup pages:
       # https://www.odoo.com/documentation/11.0/setup/install.html
