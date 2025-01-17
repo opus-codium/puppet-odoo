@@ -19,7 +19,7 @@ class odoo::dependencies {
       case $facts.get('os.name') {
         'debian': {
           case $facts.get('os.release.major') {
-            '10', '11': {
+            '11': {
               $odoo_dependencies = [
                 'python3-qrcode',
                 'python3-phonenumbers',
@@ -49,18 +49,6 @@ class odoo::dependencies {
         }
         'ubuntu': {
           case $facts.get('os.release.full') {
-            '18.04': {
-              $odoo_dependencies = [
-                'python3-qrcode',
-                'python3-phonenumbers',
-                'python3-pyldap',
-                'python3-vobject',
-              ]
-
-              $odoo_pip_packages = {
-                'num2words' => { ensure => '0.5.10' },
-              }
-            }
             default: {
               warning("Please contribute support for ubuntu ${facts.get('os.release.full')}")
               $odoo_dependencies = []
