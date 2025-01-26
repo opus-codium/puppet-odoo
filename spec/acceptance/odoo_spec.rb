@@ -5,7 +5,7 @@ require 'spec_helper_acceptance'
 def odoo_supported_versions
   {
     'Debian' => {
-      '11' => ['14.0', '15.0', '16.0', '17.0', '18.0', 'system'],
+      '11' => ['14.0', '15.0', '16.0', 'system'],
       '12' => ['14.0', '15.0', '16.0', '17.0', '18.0'],
     },
     'Ubuntu' => {
