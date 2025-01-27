@@ -4,6 +4,24 @@ All notable changes to this project will be documented in this file.
 Each new release typically also includes the latest modulesync defaults.
 These should not affect the functionality of the module.
 
+## [v5.0.0](https://github.com/opus-codium/puppet-odoo/tree/v5.0.0) (2025-01-27)
+
+[Full Changelog](https://github.com/opus-codium/puppet-odoo/compare/v4.1.0...v5.0.0)
+
+**Breaking changes:**
+
+- Switch to another source for wkhtmltopdf [\#89](https://github.com/opus-codium/puppet-odoo/pull/89) ([smortex](https://github.com/smortex))
+- Drop support for Debian 10 and Ubuntu 18.04 \(EOL\) [\#87](https://github.com/opus-codium/puppet-odoo/pull/87) ([smortex](https://github.com/smortex))
+
+**Implemented enhancements:**
+
+- Add support for odoo 18.0 [\#88](https://github.com/opus-codium/puppet-odoo/pull/88) ([NeatNerdPrime](https://github.com/NeatNerdPrime))
+- Add support for Ubuntu 24.04 [\#81](https://github.com/opus-codium/puppet-odoo/pull/81) ([smortex](https://github.com/smortex))
+
+**Fixed bugs:**
+
+- Add python3-pdfminer dependency [\#86](https://github.com/opus-codium/puppet-odoo/pull/86) ([smortex](https://github.com/smortex))
+
 ## [v4.1.0](https://github.com/opus-codium/puppet-odoo/tree/v4.1.0) (2024-06-06)
 
 [Full Changelog](https://github.com/opus-codium/puppet-odoo/compare/v4.0.0...v4.1.0)
