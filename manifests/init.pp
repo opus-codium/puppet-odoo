@@ -82,7 +82,7 @@
 class odoo (
   Enum['10.0', '11.0', '12.0', '13.0', '14.0', '15.0', '16.0', '17.0', '18.0', 'system'] $version = undef,
 
-  String[1]                   $wkhtmltox_version = undef,
+  String[1]                   $wkhtmltox_version = '0.12.6.1',
   Optional[Enum['wkhtmltox']] $wkhtmltopdf = undef,
 
   Boolean   $manage_package = true,

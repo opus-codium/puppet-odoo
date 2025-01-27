@@ -4,7 +4,7 @@
 class odoo::wkhtmltox {
   assert_private()
 
-  $wkhtmltox_url = "https://github.com/wkhtmltopdf/packaging/releases/download/${odoo::wkhtmltox_version}/wkhtmltox_${odoo::wkhtmltox_version}.${facts.get('os.distro.codename')}_${facts.get('os.architecture')}.deb"
+  $wkhtmltox_url = "https://github.com/newinnovations/wkhtml-packaging/releases/download/v${odoo::wkhtmltox_version}/wkhtmltox_${odoo::wkhtmltox_version}-${facts.get('os.distro.codename')}_${facts.get('os.architecture')}.deb"
 
   $wkhtmltox_dependencies = $facts.get('os.name') ? {
     'Debian' => [
