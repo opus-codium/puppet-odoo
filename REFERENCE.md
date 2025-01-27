@@ -128,7 +128,7 @@ Data type: `String[1]`
 
 Version of wkhtmltox to install when wkhtmltopdf is set to wkhtmltox
 
-Default value: `undef`
+Default value: `'0.12.6.1'`
 
 ##### <a name="-odoo--wkhtmltopdf"></a>`wkhtmltopdf`
 
