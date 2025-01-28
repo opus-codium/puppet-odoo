@@ -53,7 +53,7 @@ def build_odoo_fact
               env = odoo.api.Environment(cr, uid, ctx)
 
               res['databases'][dbname] = {}
-              regex = re.compile('\\A__\\w*__\\Z')
+              regex = re.compile(r'\\A__\\w*__\\Z')
               res['databases'][dbname]['addons'] = {}
               for addon in dir(odoo.addons):
                   if not regex.match(addon):
