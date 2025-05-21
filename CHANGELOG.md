@@ -4,6 +4,14 @@ All notable changes to this project will be documented in this file.
 Each new release typically also includes the latest modulesync defaults.
 These should not affect the functionality of the module.
 
+## [v5.1.0](https://github.com/opus-codium/puppet-odoo/tree/v5.1.0) (2025-05-21)
+
+[Full Changelog](https://github.com/opus-codium/puppet-odoo/compare/v5.0.1...v5.1.0)
+
+**Implemented enhancements:**
+
+- Allow puppetlabs-apt 10.x [\#94](https://github.com/opus-codium/puppet-odoo/pull/94) ([smortex](https://github.com/smortex))
+
 ## [v5.0.1](https://github.com/opus-codium/puppet-odoo/tree/v5.0.1) (2025-01-28)
 
 [Full Changelog](https://github.com/opus-codium/puppet-odoo/compare/v5.0.0...v5.0.1)
