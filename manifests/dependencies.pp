@@ -22,6 +22,10 @@ class odoo::dependencies {
             $odoo_dependencies = []
             $odoo_pip_packages = {}
           }
+          '13': {
+            $odoo_dependencies = []
+            $odoo_pip_packages = {}
+          }
           default: {
             notify { "Please contribute support for Debian ${facts.get('os.release.full')}": }
             $odoo_dependencies = []
