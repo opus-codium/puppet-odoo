@@ -23,7 +23,7 @@ class odoo::dependencies {
             $odoo_pip_packages = {}
           }
           default: {
-            notice { "Please contribute support for Debian ${facts.get('os.release.full')}": }
+            notify { "Please contribute support for Debian ${facts.get('os.release.full')}": }
             $odoo_dependencies = []
             $odoo_pip_packages = {}
           }
@@ -46,14 +46,14 @@ class odoo::dependencies {
             $odoo_pip_packages = {}
           }
           default: {
-            notice { "Please contribute support for ubuntu ${facts.get('os.release.full')}": }
+            notify { "Please contribute support for ubuntu ${facts.get('os.release.full')}": }
             $odoo_dependencies = []
             $odoo_pip_packages = {}
           }
         }
       }
       default: {
-        notice { "Please contribute support for ${facts.get('os.name')}": }
+        notify { "Please contribute support for ${facts.get('os.name')}": }
         $odoo_dependencies = []
         $odoo_pip_packages = {}
       }
