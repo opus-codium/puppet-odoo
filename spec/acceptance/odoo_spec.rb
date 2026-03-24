@@ -22,6 +22,8 @@ describe 'odoo class' do
       let(:version) { version }
 
       it 'works idempotently with no errors' do
+        pending('Upstream repository is broken: see https://github.com/odoo/odoo/issues/224353') if version == '15.0'
+
         # Normally we should just purge the package between tests but this
         # somewhat fails on Ubuntu so we explicitely terminate the service and
         # delete the user account to have a working environment.  No thank you
